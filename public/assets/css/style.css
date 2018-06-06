@@ -1,6 +1,7 @@
 body{
     margin:0;
-    background-color:rgb(0,0,0);
+    /* background-color:rgb(0,0,0); */
+    background-image:url("../images/sunrise-1756274_1920.jpg");
 }
 .star{
     position:absolute;
