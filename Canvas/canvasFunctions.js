@@ -1,3 +1,5 @@
+// Sprite Sources: 
+// https://opengameart.org/content/fumiko-complete-charset
 // Sprite Right to 1/2 hover
 function halfToHover() {
   if (right && x < (canvasWidth - width) / 2) {
