@@ -15,7 +15,7 @@ var cols = 12;
 var trackRight = 0;
 
 // Row 1 (second row in sprite sheet) for left movement
-var trackLeft = 1;
+var trackLeft = 0;
 
 // Divide the width of sprite by # of cols to get the width of single sprite
 var width = spriteWidth/cols;
@@ -26,16 +26,16 @@ var height = spriteHeight/rows;
 // Each row contains 8 frames so at start diplay first frame
 var curFrame = 0;
 
-// Set totla frame to 6
+// Set totla frame to 12
 var frameCount = 12;
 
 // Set x & y coordinates to render sprite
-var x=0;
-var y=0;
+var x = 0;
+var y = 0;
 
 // Set x & y coord of canvas to get single frame
-var srcX=0;
-var srcY=0;
+var srcX = 0;
+var srcY = 0;
 
 // Tracking movement left and right
 var left = false;
@@ -59,8 +59,8 @@ canvas.height = canvasHeight;
 var ctx = canvas.getContext("2d");
 
 // Set Background
-var background = new Image();
-background.src = "./images/ufo1/pyramids.jpg"; 
+// var background = new Image();
+// background.src = "./images/ufo1/pyramids.jpg"; 
 
 
 // Creating an Image object for our character
@@ -77,19 +77,12 @@ function updateFrame() {
   srcX = curFrame * width;
   // Clear already drawn sprite before new sprite renders
   ctx.clearRect(x, y, width, height);
-  // If left is true and the character has not reached the left edge
-  if (left && x > 0) {
-    
-    // Calc srcY for spritesheet
-    srcY = trackLeft * height;
-    // Decrease the x coord
-    x -= speed;
-  }
-  // If right is true and character has not reached the right edge
+  // Full Screen Ping Pong Loop
   if (right && x < canvasWidth - width) {
-    srcY = trackRight * height;
+    // srcY = trackRight * height;
     x += speed;
-    ctx.beginPath();
+  
+    // ctx.beginPath();
     // ctx.moveTo(100, 20);
     // ctx.lineTo(200, 160);
     // ctx.quadraticCurveTo(230, 200, 250, 120);
@@ -99,6 +92,17 @@ function updateFrame() {
     // Calculating y coordinate for spritesheet
 
   }
+  else if (x >= 0) {
+    right = false;
+    left = true;
+    x -= speed;
+
+    if (x === 0) {
+      right = true;
+      left = false;
+    }
+    
+  }
 }
 
 // SPRITE RENDER FUNC = function to render the sprite in canvas element
@@ -106,9 +110,9 @@ function draw() {
   // Calls function to update frame of sprite 
   updateFrame();
   
-  background.onload = function() {
-    ctx.drawImage(background, 0, 0);
-  }
+  // background.onload = function() {
+  //   ctx.drawImage(background, 0, 0);
+  // }
   // Draws current sprite to canvas
   ctx.drawImage(character, srcX, srcY, width, height, x, y, width, height);
 
@@ -123,4 +127,4 @@ function moveRight() {
   left = false; 
   right = true;
 }
-setInterval(draw, 100);
+setInterval(draw, 50);
