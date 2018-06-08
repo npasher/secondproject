@@ -109,6 +109,13 @@ var player = new Image();
 player.src = "./images/hero.png";
 console.log(player);
 
+// SPRITE RENDER FUNC = function to render the sprite in canvas element
+function draw() {
+  updateFrame();
+  ctx.drawImage(ufo, srcX, srcY, width, height, x, y, width, height);
+  ctx.drawImage(player, psrcX, psrcY, pwidth, pheight, px, py, pwidth, pheight);
+};
+
 // FRAME INDEX FUNC - Function to update the frame index. Updates a frames each time to render a new sprite from 0-5.
 function updateFrame() {
   updateUFO();
@@ -116,12 +123,6 @@ function updateFrame() {
   // console.log(pheight);
 }
 
-// SPRITE RENDER FUNC = function to render the sprite in canvas element
-function draw() {
-  updateFrame();
-  ctx.drawImage(ufo, srcX, srcY, width, height, x, y, width, height);
-  ctx.drawImage(player, psrcX, psrcY, pwidth, pheight, px, py, pwidth, pheight);
-};
 
 function moveLeft() {
   left = true;
@@ -167,6 +168,7 @@ function updatePlayer() {
   // Full Screen Ping Pong Loop
   if (pright && px < (canvasWidth - pwidth) / 2) {
     px += pspeed;
+    console.log("test");
     if (px === ((canvasWidth - pwidth) / 2)) {
       px = (canvasWidth - pwidth) / 2;
       // setInterval();
