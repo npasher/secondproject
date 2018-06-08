@@ -8,7 +8,6 @@ for (let i=0;i<numStars;i++){
     star.style.left=xy[1] + 'px';
   document.body.append(star);
 }
-
 function getRandomPosition(){//Retrieves random x,y value based on container size.//
   let y=window.innerWidth;
   let x=window.innerHeight;
