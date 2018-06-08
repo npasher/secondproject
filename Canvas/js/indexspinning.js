@@ -41,7 +41,7 @@ var frameCount = 12;
 
 // Set x & y coordinates to render sprite
 var x = 0;
-var y = 0;
+var y = 10;
 
 // Set x & y coord of canvas to get single frame
 var srcX = 0;
@@ -85,11 +85,11 @@ var pframeCount = 6;
 
 // Set x & y coordinates to render sprite
 var px = 0;
-var py = 200;
+var py = 240;
 
 // Set x & y coord of canvas to get single frame
 var psrcX = 0;
-var psrcY = 0;
+var psrcY = 94;
 
 // Tracking movement left and right
 var pleft = false;
@@ -98,31 +98,22 @@ var pleft = false;
 var pright = true;
 
 // Set speed of movement
-var pspeed = 5; 
+var pspeed = 3; 
 
 
 // Get Id of canvas
 var canvas = document.getElementById("canvas");
-
 // Set canvas size
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
- 
-
-
 // Establishing a context of the canvas
 var ctx = canvas.getContext("2d");
 
-// Set Background
-// var background = new Image();
-// background.src = "./images/ufo1/pyramids.jpg"; 
-
-
 // Creating an Image object for our character
-var character = new Image();
+var ufo = new Image();
 
 // The source of the image file
-character.src = "./images/ufo1/ufov2.png";
+ufo.src = "./images/ufo1/ufov2.png";
 
 var player = new Image();
 player.src = "./images/hero.png";
@@ -131,12 +122,13 @@ player.src = "./images/hero.png";
 function updateFrame() {
   updateUFO();
   updatePlayer();
+  // console.log(pheight);
 }
 
 // SPRITE RENDER FUNC = function to render the sprite in canvas element
 function draw() {
   updateFrame();
-  ctx.drawImage(character, srcX, srcY, width, height, x, y, width, height);
+  ctx.drawImage(ufo, srcX, srcY, width, height, x, y, width, height);
   ctx.drawImage(player, psrcX, psrcY, pwidth, pheight, px, py, pwidth, pheight);
 };
 
@@ -182,21 +174,18 @@ function updatePlayer() {
   // Clear already drawn sprite before new sprite renders
   ctx.clearRect(px, py, pwidth, pheight);
   // Full Screen Ping Pong Loop
-  if (right && px < canvasWidth - pwidth) {
-    // srcY = trackRight * height;
+  if (pright && px < (canvasWidth - pwidth) / 2) {
     px += pspeed;
-  }
-  else if (px >= 0) {
-    right = false;
-    left = true;
-    px -= speed;
-
-    if (px === 0) {
-      right = true;
-      left = false;
+    if (px === ((canvasWidth - pwidth) / 2)) {
+      px = (canvasWidth - pwidth) / 2;
+      // setInterval();
+      pright = false;
+      pcurFrame = 0;
+      psrcX = 0;
+      psrcY = 0;
+      pframeCount = 1;
     }
   }
 }
 
-
-// setInterval(draw, 50);
+setInterval(draw, 50);
