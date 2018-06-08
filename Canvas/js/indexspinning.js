@@ -1,11 +1,4 @@
-// Create the canvas in html
-// Get Id of canvas
-var canvas = document.getElementById("canvas");
-// Establishing a context of the canvas
-var ctx = canvas.getContext("2d");
-// Set canvas size
-canvas.width = canvasWidth;
-canvas.height = canvasHeight;
+
 // Height and width of canvas 
 var canvasWidth = 650;
 var canvasHeight = 350;
@@ -97,10 +90,14 @@ var pright = true;
 // Set speed of movement
 var pspeed = 3; 
 
-
-
-
-
+// Create the canvas in html
+// Get Id of canvas
+var canvas = document.getElementById("canvas");
+// Establishing a context of the canvas
+var ctx = canvas.getContext("2d");
+// Set canvas size
+canvas.width = canvasWidth;
+canvas.height = canvasHeight;
 
 // Creating an Image object for our character
 var ufo = new Image();
@@ -110,6 +107,7 @@ ufo.src = "./images/ufo1/ufov2.png";
 
 var player = new Image();
 player.src = "./images/hero.png";
+console.log(player);
 
 // FRAME INDEX FUNC - Function to update the frame index. Updates a frames each time to render a new sprite from 0-5.
 function updateFrame() {
