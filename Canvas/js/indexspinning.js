@@ -1,14 +1,11 @@
-
-// function Sprite(url, pos, size, speed, frames, dir) {
-//   this.pos = pos;
-//   this.size = size;
-//   this.speed = 0;
-//   this.frames = frames;
-//   this._index = 0;
-//   this.url = url;
-//   this.dir = dir || "right";
-// }; 
-
+// Create the canvas in html
+// Get Id of canvas
+var canvas = document.getElementById("canvas");
+// Establishing a context of the canvas
+var ctx = canvas.getContext("2d");
+// Set canvas size
+canvas.width = canvasWidth;
+canvas.height = canvasHeight;
 // Height and width of canvas 
 var canvasWidth = 650;
 var canvasHeight = 350;
@@ -27,23 +24,23 @@ var trackRight = 0;
 // Row 1 (second row in sprite sheet) for left movement
 var trackLeft = 0;
 
-// Divide the width of sprite by # of cols to get the width of single sprite
+// Divide the width of sprite by # of cols to get the width of single sprite srcWidth
 var width = spriteWidth/cols;
 
-// Divide the height of sprite by # of rows to geth the height of single sprite
+// Divide the height of sprite by # of rows to geth the height of single sprite srcHeight
 var height = spriteHeight/rows;
 
-// Each row contains 8 frames so at start diplay first frame
+// Each row contains 8 frames so at start diplay first frame srcCurFrame
 var curFrame = 0;
 
-// Set totla frame to 12
+// Set totla frame to 12 srcTotFrame
 var frameCount = 12;
 
-// Set x & y coordinates to render sprite
+// Set x & y coordinates to render sprite dx & dy
 var x = 0;
 var y = 10;
 
-// Set x & y coord of canvas to get single frame
+// Set x & y coord of canvas to get single frame srcx & srcy
 var srcX = 0;
 var srcY = 0;
 
@@ -57,11 +54,11 @@ var right = true;
 var speed = 5; 
 // __________________________________________________________________
 
-// Height and width of spritesheet
+// Height and width of spritesheet spriteSheetW & spriteSheetH
 var pspriteWidth = 640; 
 var pspriteHeight = 470;
 
-// The rows and colums of sprite sheet
+// The rows and colums of sprite sheet spriteSheetRows & spriteSheetCols
 var prows = 5;
 var pcols = 8; 
 
@@ -101,13 +98,9 @@ var pright = true;
 var pspeed = 3; 
 
 
-// Get Id of canvas
-var canvas = document.getElementById("canvas");
-// Set canvas size
-canvas.width = canvasWidth;
-canvas.height = canvasHeight;
-// Establishing a context of the canvas
-var ctx = canvas.getContext("2d");
+
+
+
 
 // Creating an Image object for our character
 var ufo = new Image();
