@@ -1,5 +1,8 @@
 // Sprite Sources: 
 // https://opengameart.org/content/fumiko-complete-charset
+// https://opengameart.org/content/space-soldier-m484-games But if you wish to give me credit, then you can mention "Master484" as the original author, and maybe also put a link to my website: http://m484games.ucoz.com/
+
+
 // Sprite Right to 1/2 hover
 function halfToHover() {
   if (right && x < (canvasWidth - width) / 2) {
@@ -27,3 +30,36 @@ function pingPong() {
     }
   }
 };
+
+// SPRITE CONSTRUCTOR
+function Sprite(url, spriteSheetW, spriteSheetH, spriteSheetRows, spriteSheetCols, srcCurFrame, srcTotFrame, srcWidth, srcHeight,  srcx, srcy, dx, dy, dWidth, dHeight, dirLeft, dirRight, speed) {
+  this.spriteSheetW = spriteSheetW;
+  this.spriteSheetH = spriteSheetH;
+  this.spriteSheetRows = spriteSheetRows;
+  this.spriteSheetCols = spriteSheetCols;
+  this.srcCurFrame = srcCurFrame;
+  this.srcTotFrame = srcTotFrame;
+  this.srcWidth = srcWidth;
+  this.srcHeight = srcHeight;
+  this.srcx = srcx;
+  this.srcy = srcy;
+  this.dx = dx;
+  this.dy = dy;
+  this.dWidth = dWidth;
+  this.dHeight = dHeight;
+  this.dirLeft = dirLeft;
+  this.dirRight = dirRight;
+  this.speed = speed;
+  // this.pos = pos;
+//   this.size = size;
+//   this.speed = 0;
+//   this.frames = frames;
+//   this._index = 0;
+//   this.url = url;
+//   this.dir = dir || "right";
+}; 
+
+// Character objects
+var player = {
+
+}
