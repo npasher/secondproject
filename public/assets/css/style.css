@@ -1,6 +1,13 @@
 body{
     margin:0;
     background-image:url("../images/sunrise-1756274_1920.jpg");
+    
+    background-repeat: no-repeat;
+}
+#map{
+    background-image:url("../images/8-bit-google-maps-1.jpg");
+    background-position:center;
+    top:10%;
 }
 .star{
     position:absolute;
