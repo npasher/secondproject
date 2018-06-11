@@ -19,8 +19,14 @@ var backgrounds = {
   shanghaiBkgrd: "./public/assets/images/backgrounds/shanghai.jpg",
   sydneyBkgrd: "./public/assets/images/backgrounds/sydney.jpg",
   moscowBkgrd: "./public/assets/images/backgrounds/moscow.jpg",
-  nycBkgrd: "./public/assets/images/backgrounds/nyc.jpg"
+  nycBkgrd: "./public/assets/images/backgrounds/nyc.jpg",
+  riverBkgrd: "./public/assets/images/backgrounds/river.jpg",
+  boxBkgrd: "./public/assets/images/backgrounds/box.jpg",
+  forkBkgrd: "./public/assets/images/backgrounds/fork.jpg",
+  homebaseBkgrd: "./public/assets/images/backgrounds/homebase.jpg"
 }
+
+var alienFound = false;
 
 // Creation of game characters
 var player = new Sprite("./public/assets/images/sprites/hero.png", 640, 470, 5, 8, 0, 6, 0, 94, 0, 260, 3);
@@ -112,4 +118,6 @@ function stopInterval() {
 }
 
 // STARTS THE ANIMATION
-init();
+if (alienFound) {
+  init();
+}
