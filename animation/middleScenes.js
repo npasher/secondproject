@@ -67,7 +67,7 @@ function riverDraw() {
     ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
   }
   else if (homebase) {
-    // player.dy = 100;
+    player.dy = 235;
     ctx.drawImage(homebaseURL, 0, 0, 650, 350);
     ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
   }

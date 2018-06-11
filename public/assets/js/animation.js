@@ -117,6 +117,10 @@ function stopInterval() {
   clearInterval(frameRateId);
 }
 
+function deathOutcome () {
+  ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
+}
+
 // STARTS THE ANIMATION
 if (alienFound) {
   init();
