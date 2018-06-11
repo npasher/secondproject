@@ -2,11 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UFO INVESTIGATIONS</title>
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-  <link rel="stylesheet" href="public/assets/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link href='public/assets/css/style.css' rel='stylesheet' type='text/css'>
+  <style>
+    #canvas {
+      /* background: url("./public/assets/images/backgrounds/paris.jpg"); */
+      /* background: url("./public/assets/images/backgrounds/cairo.jpg"); */
+      /* background: url("./public/assets/images/backgrounds/la.jpg"); */
+      /* background: url("./public/assets/images/backgrounds/mumbai.jpg"); */
+      /* background: url("./public/assets/images/backgrounds/saopaolo.jpg"); */
+      /* background: url("./public/assets/images/backgrounds/shanghai.jpg"); */
+      /* background: url("./public/assets/images/backgrounds/sydney.jpg"); */
+      background: url("./public/assets/images/backgrounds/moscow.jpg");
+      /* background: url("./public/assets/images/backgrounds/nyc.jpg"); */
+      background-size: cover;
+    }
+  </style>
+  <title>Document</title>
 </head>
 <body>
-  <div class="test"></div>
+  
+<div class="bg-filter"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col left">
+      <div class="jumbotron jumbotron-fluid">
+        <div>
+          <canvas id="canvas"></canvas>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col right" id="map">
+      <div class="jumbotron jumbotron-fluid">
+        <div>
+          
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col bottom">
+<div class="jumbotron jumbotron-fluid">
+  <div>
+    
+    
+  </div>
+</div>
+</div>
+</div>
+<script  src="./public/assets/js/sprite.js"></script>
+<script  src="./public/assets/js/animation.js"></script>
 </body>
 </html>

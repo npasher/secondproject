@@ -1,28 +1,41 @@
-//Dependencies.//
-const express=require("express");
-const bodyParser=require("body-parser");
-const app=express();
+// *****************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
+var express = require("express");
+var bodyParser = require("body-parser");
+var env = require('dotenv');
+// Sets up the Express App
+// =============================================================
+var app = express();
+var PORT = process.env.PORT || 7000;
 
-const apiRoutes=require('./routes/api-routes.js');
-const htmlRoutes=require('./routes/html-routes.js');
-const db=require("./models");
+// Requiring our models for syncing
+var db = require("./models");
 
-const env = require('dotenv');
-const PORT=process.env.PORT || 8080;
-//Express app setup to handle data parsing.//
+// Sets up the Express app to handle data parsing
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-//Static directory being served.//
+// Static directory
 app.use(express.static("public"));
-//HTML routing serving different HTML files.//
-app.use(apiRoutes);
-app.use(htmlRoutes);
 
-//Starts the server listening.//
-db.sequelize.sync({}).then(function() {
+// Routes
+// =============================================================
+require("./routes/html-routes.js")(app);
+require("./routes/teams-api-routes.js")(app);
+require("./routes/locations-api-routes.js")(app);
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
-    console.log("Listening on PORT: " + PORT);
+    console.log("App listening on PORT " + PORT);
   });
 });
