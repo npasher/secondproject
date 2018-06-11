@@ -2,13 +2,23 @@ body{
     font-family: 'Press Start 2P', cursive;
     margin:0;
     background-image:url("../images/sunrise-1756274_1920.jpg");
-    
     background-repeat: no-repeat;
+}
+.container{
+    background-image: url("../images/scanlines.png");
+    background-position:center;
+    /* top:10%; */
+    margin:1% 1% 0 2.5%;
+    /* padding:0 0 0 0; */
+}
+#canvas{
+
 }
 #map{
     background-image:url("../images/8-bit-google-maps-1.jpg");
-    background-position:center;
-    top:10%;
+    background-repeat: no-repeat;
+    height:350px;
+    width:650px;
 }
 .star{
     position:absolute;
@@ -47,82 +57,6 @@ body{
     bottom:0px;
     margin-left:25%;
 }
-/* p{
-    color:#ff4500;
+.jumbotron{
+    background-color:transparent;
 }
-#board{Font Setup and board positioning */
-    /* font-family: 'Press Start 2P', cursive;
-    transform:perspective(500px) rotateX(25deg);
-    transform-origin:50% 100%;
-    text-align:justify;
-    position:absolute;
-    margin-left:-9em;
-    font-weight:bold;
-    overflow:hidden;
-    font-size:350%;
-    height:50em;
-    width:18em;
-    bottom:0;
-    left:50%;
-}
-#board:after{    
-    position:absolute;
-    content:' ';
-    bottom:60%;
-    left:0;
-    right:0;
-    top:0;
-} */
-/* #content{ Scrolling animation and positioning. */
-    /* animation:scroll 5s linear 10s;
-    position:absolute;
-    top:100%; */
-/* }
-#title, #subtitle{
-    text-align:center;
-}
-@keyframes scroll{
-    0%{
-        top:100%;
-    }
-    100%{
-        top:-170%;
-    }
-}
-.start {
-    position:relative;
-    text-align:center;
-    background:transparent;
-    margin:0 auto;
-    max-width:1000px;
-    padding:2ch;
-    width:100%;
-} */
-/* .btn {
-    font-family:'Press Start 2P',cursive;
-    background:#7C7C7C;
-    border-bottom:1px inset rgba(0, 0, 0, 0.5);
-    border-left:1px inset rgba(0, 0, 0, 0.5);
-    border-right:1px inset rgba(255, 255, 255, 0.5);
-    border-top:1px inset rgba(255, 255, 255, 0.5);
-    box-sizing:border-box;
-    color:white;
-    cursor:pointer;
-    display:inline-block;
-    font-size:2rem;
-    margin:1rem;
-    max-width:320px;
-    padding:.5rem;
-    text-shadow:0px 0px 5px #000;
-    text-transform:uppercase;
-    width:100%;
-}
-.btn:focus, .btn:hover {
-    background:#BCBCBC;
-}
-.btn.primary {
-    background:#881400;
-    }
-.btn.primary:focus, .btn.primary:hover {
-    background:#A81000;
-    } */
