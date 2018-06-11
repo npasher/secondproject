@@ -122,6 +122,5 @@ function deathOutcome () {
 }
 
 // STARTS THE ANIMATION
-if (alienFound) {
-  init();
-}
+
+init();
