@@ -1,6 +1,5 @@
 const numStars=100;//Sets number of displayed stars.//
-// For every star we want to display
-for (let i=0;i<numStars;i++){
+for (let i=0;i<numStars;i++){// For every star we want to display
   let star=document.createElement("div");  
   star.className="star";
   let xy=getRandomPosition();
