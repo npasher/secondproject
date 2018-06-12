@@ -391,8 +391,12 @@ function outcome(){
         });
     }else{
         $(".jbGame").html(
-            `<h1 class="action-title text-center">The team has found their way into a dense forest and is hopelessly lost. They fail to reach the UFO site. Return home in shame.</h1>`
+            `<h1 class="action-title text-center">The team has found their way into a dense forest and is hopelessly lost. They fail to reach the UFO site. Return home in shame.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     }
 }
 
@@ -410,15 +414,23 @@ function anythingThere(){
     } else {
         var rand2 = Math.random();
         if (rand2>0.5){
-            win = ture;
+            win = true;
             $(".jbGame").html(
-                `<h1 class="action-title text-center">Nothing's here... Guess ${team} should go home and report their findings.</h1>`
+                `<h1 class="action-title text-center">Nothing's here... Guess ${team} should go home and report their findings.</h1>
+                <button class="continue">Save</button>`
             );
+            $(".continue").click(function(){
+                save();
+            });
         }else{
             win = true;
             $(".jbGame").html(
-                `<h1 class="action-title text-center">There's no one here now, but it looks like someone's definitely made a disturbance. Go home and report back evidence.</h1>`
+                `<h1 class="action-title text-center">There's no one here now, but it looks like someone's definitely made a disturbance. Go home and report back evidence.</h1>
+                <button class="continue">Save</button>`
             );
+            $(".continue").click(function(){
+                save();
+            });
         };
     };
 };
@@ -428,8 +440,12 @@ function spotted(){
     if(stealth>rand){
         win = true;
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Looks like the team is flying under the radar. Snoop around undetected. Report back with cool photos and evidence!</h1>`
+            `<h1 class="action-title text-center">Looks like the team is flying under the radar. Snoop around undetected. Report back with cool photos and evidence!</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     }else{
         $(".jbGame").html(
             `<h1 class="action-title text-center">The aliens have spotted you! ...ooo and they look pissed. What's the plan?</h1>
@@ -455,12 +471,20 @@ function confrontation(){
     if (offense>rand){
         win = true;
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Woo! The team has kept the aliens at bay. Take time to explore and record evidence. Report back findings.</h1>`
+            `<h1 class="action-title text-center">Woo! The team has kept the aliens at bay. Take time to explore and record evidence. Report back findings.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     }else{
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Looks like the team has lost the fight... Tend to your injuries and return home.</h1>`
+            `<h1 class="action-title text-center">Looks like the team has lost the fight... Tend to your injuries and return home.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     };
 };
 
@@ -488,12 +512,20 @@ function prepare(){
     if (defense>rand2){
         win = true;
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>`
+            `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     }else{
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>`
+            `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     };
 };
 
