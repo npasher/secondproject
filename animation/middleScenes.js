@@ -9,7 +9,7 @@ canvas.height = 350;
 var canvasWidth = 650;
 var canvasHeight = 350;
 
-var river = false;
+var river = true;
 var box = false;
 var fork = false;
 var homebase = true;
@@ -73,15 +73,3 @@ function riverDraw() {
   }
 }
 
-if (river) {
-  riverInit();
-} 
-else if (box) {
-  riverInit();
-}
-else if (fork) {
-  riverInit();
-}
-else if (homebase) {
-  riverInit();
-}

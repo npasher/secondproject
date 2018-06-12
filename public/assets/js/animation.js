@@ -123,4 +123,4 @@ function deathOutcome () {
 
 // STARTS THE ANIMATION
 
-init();
+// init();
