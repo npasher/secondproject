@@ -541,7 +541,8 @@ function save(){
                 <label for="formGroupExampleInput">Enter Email</label>
                 <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
             </div>
-            <button class="continue">Submit Game</button>
+            <button class="continue" id="existingPlayer>I'm a returning player</button>
+            <button class="continue" id="newPlayer">I'm a new player</button>
         </form>`
     );
 }
