@@ -1,34 +1,6 @@
-#CREATE DATABASE aliens_db;
-
-USE aliens_db;
-
-CREATE TABLE teams (
-	id int NOT NULL AUTO_INCREMENT,
-	teamName varchar(100) NOT NULL,
-	defenseVal INTEGER(10) NOT NULL,
-    offenseVal INTEGER(10) NOT NULL,
-    stealthVal INTEGER(10) NOT NULL,
-    charmVal INTEGER(10) NOT NULL,
-	PRIMARY KEY (id)
-);
-
-
-CREATE TABLE locations (
-id INTEGER(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-country VARCHAR(100) NULL,
-city VARCHAR(100) NULL,
-wt INTEGER(10) NULL,
-wtPer DECIMAL(10,4) NULL,
-comfort INTEGER(10),
-comfPer DECIMAL(10,4) NULL,
-armor INTEGER(10),
-armorPer DECIMAL(10,4) NULL,
-weapons INTEGER(10),
-weapPER DECIMAL(10,4) NULL,
-tools INTEGER(10),
-toolsPer DECIMAL(10,4) NULL,
-timeofday INTEGER(10),  
-timeofdayPer DECIMAL(10,4) NULL
-);
+-- Drops the alien if it exists currently --
+DROP DATABASE IF EXISTS alien;
+-- Creates the "alien" database --
+CREATE DATABASE alien;
 
 

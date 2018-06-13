@@ -11,9 +11,9 @@ module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads gami.html
+  //index route loads game.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/game.html"));
+    res.sendFile(path.join(__dirname, "./game.html"));
   });
 
   // Route to the index page
