@@ -14,30 +14,28 @@ var box = false;
 var fork = false;
 var homebase = false;
 
-riverURL = new Image();
-riverURL.src = backgrounds.riverBkgrd;
-boxURL = new Image();
-boxURL.src = backgrounds.boxBkgrd;
-forkURL = new Image();
-forkURL.src = backgrounds.forkBkgrd;
-homebaseURL = new Image();
-homebaseURL.src = backgrounds.homebaseBkgrd;
+// riverURL = new Image();
+// riverURL.src = backgrounds.riverBkgrd;
+// boxURL = new Image();
+// boxURL.src = backgrounds.boxBkgrd;
+// forkURL = new Image();
+// forkURL.src = backgrounds.forkBkgrd;
+// homebaseURL = new Image();
+// homebaseURL.src = backgrounds.homebaseBkgrd;
 
 
-bridgeURL = new Image();
-bridgeURL.src = backgrounds.bridgeBkgrd;
-trollURL = new Image();
-trollURL.src = props.troll;
-treasureChestURL = new Image();
-treasureChestURL.src = props.treasureChest;
-
-darkForestURL = new Image();
-darkForestURL.src = backgrounds.darkForestBkgrd;
-
-destructForestURL = new Image();
-destructForestURL.src = backgrounds.destructForestBkgrd;
-supplyCrateURL = new Image();
-supplyCrateURL.src = props.supplyCrate;
+// bridgeURL = new Image();
+// bridgeURL.src = backgrounds.bridgeBkgrd;
+// trollURL = new Image();
+// trollURL.src = props.troll;
+// treasureChestURL = new Image();
+// treasureChestURL.src = props.treasureChest;
+// darkForestURL = new Image();
+// darkForestURL.src = backgrounds.darkForestBkgrd;
+// destructForestURL = new Image();
+// destructForestURL.src = backgrounds.destructForestBkgrd;
+// supplyCrateURL = new Image();
+// supplyCrateURL.src = props.supplyCrate;
 
 
 

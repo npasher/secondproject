@@ -9,45 +9,19 @@ canvas.height = 350;
 var canvasWidth = 650;
 var canvasHeight = 350;
 
-// paris, mumbai, moscow all need to be changed
-var backgrounds = {
-  cairoBkgrd: "./public/assets/images/backgrounds/cairo.jpg",
-  parisBkgrd: "./public/assets/images/backgrounds/paris.jpg",
-  laBkgrd: "./public/assets/images/backgrounds/la.jpg",
-  mumbaiBkgrd: "./public/assets/images/backgrounds/mumbai.jpg",
-  saopaoloBkgrd: "./public/assets/images/backgrounds/saopaolo.jpg",
-  shanghaiBkgrd: "./public/assets/images/backgrounds/shanghai.jpg",
-  sydneyBkgrd: "./public/assets/images/backgrounds/sydney.jpg",
-  moscowBkgrd: "./public/assets/images/backgrounds/moscow.jpg",
-  nycBkgrd: "./public/assets/images/backgrounds/nyc.jpg",
-  riverBkgrd: "./public/assets/images/backgrounds/river.jpg",
-  boxBkgrd: "./public/assets/images/backgrounds/box.jpg",
-  forkBkgrd: "./public/assets/images/backgrounds/fork.jpg",
-  homebaseBkgrd: "./public/assets/images/backgrounds/homebase.jpg",
-  bridgeBkgrd: "./public/assets/images/backgrounds/bridge.jpg",
-  darkForestBkgrd: "./public/assets/images/backgrounds/darkForest.jpg",
-  destructForestBkgrd: "./public/assets/images/backgrounds/destructForest.jpg",
-}
 
-var props = {
-  troll: "./public/assets/images/sprites/troll.png",
-  treasureChest: "./public/assets/images/sprites/treasureChest.png",
-  supplyCrate: "./public/assets/images/sprites/supplyCrate.png"
-}
 
 var alienFound = false;
 
-// Creation of game characters
-var player = new Sprite("./public/assets/images/sprites/hero.png", 640, 470, 5, 8, 0, 6, 0, 94, 0, 260, 3);
-var ufo = new Sprite("./public/assets/images/sprites/ufo1/ufov2.png", 696, 210, 5, 12, 0, 12, 0, 0, 0, 10, 7);
+
 // The variable to hold the setInterval() in start()
 var frameRateId;
 
 // Creates url in correct formate for the drawImage();
-playerURL = new Image();
-playerURL.src = player.url; 
-ufoURL = new Image();
-ufoURL.src = ufo.url;
+// playerURL = new Image();
+// playerURL.src = player.url; 
+// ufoURL = new Image();
+// ufoURL.src = ufo.url;
 
 function outcomeInit() {
   playerURL;
