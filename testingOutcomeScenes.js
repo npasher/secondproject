@@ -13,6 +13,7 @@ function drawAlienSpotted() {
   ufo.dx = 500;
   ufo.dy = 20;
   spinningUFO();
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, 90, 376, player.srcWidth, player.srcHeight, 50, 260, player.srcWidth, player.srcHeight);
  
@@ -72,6 +73,7 @@ function drawSneakAround() {
   ufo.speed = 10;
   updateUFO();
   updatePlayer();
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
 }
@@ -114,6 +116,7 @@ function drawFight() {
   ufo.dy = 220;
   spinningUFO();
   playerFighting();
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerShootingURL, playerShooting.srcx, playerShooting.srcy, playerShooting.srcWidth, playerShooting.srcHeight, playerShooting.dx, playerShooting.dy, playerShooting.srcWidth, playerShooting.srcHeight);
 }
@@ -157,6 +160,7 @@ function drawInjured() {
   playerInjured.srcx = 240;
   spinningUFO();
   playerInjury();
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerInjuredURL, playerInjured.srcx, playerInjured.srcy, playerInjured.srcWidth, playerInjured.srcHeight, playerInjured.dx, playerInjured.dy, playerInjured.srcWidth, playerInjured.srcHeight);
 }
@@ -194,6 +198,7 @@ function drawNegotiate() {
   ufo.dx = 400;
   ufo.dy = 200;
   spinningUFO();
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, 240, 94, player.srcWidth, player.srcHeight, 250, 260, player.srcWidth, player.srcHeight);
 }
@@ -225,6 +230,7 @@ function drawAbduct() {
   ufo.dx = 325;
   ufo.dy = 30;
   spinningUFO();
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, 325, 282, player.srcWidth, player.srcHeight, 310, 150, player.srcWidth, player.srcHeight);
 }
