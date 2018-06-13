@@ -159,6 +159,8 @@ function chooseArmor(){
 };
 
 function scene1(){
+    river = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} comes across a river. What do you do?</h1>
         <button class="choice" id="r1">Find a way around delaying the party.<button>
@@ -193,6 +195,14 @@ function scene1(){
 }
 
 function scene2(){
+    stopInterval();
+    player.dx = 0;
+    river = false;
+    box = true;
+    console.log(river);
+    console.log(box);
+    console.log(fork);
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Directly in the path appears a mysterious, glowing box. WHAT'S IN THE BOX!?!?</h1>
         <button class="choice" id="b1">Open the box! It could hold a game winning tool!<button>
@@ -260,6 +270,11 @@ function scene2(){
 }
 
 function scene3(){
+    stopInterval();
+    player.dx = 0;
+    box = false;
+    fork = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} sees a fork in the road a ways in the distance. Which way do you go?</h1>
         <button class="choice" id="f1">Head left toward the creepy forest.<button>
@@ -304,6 +319,9 @@ function scene3(){
 }
 
 function scene4(){
+    box = false;
+    homebase = true;
+    riverInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Homebase call and asks if you need any reienforcements. Do you need to stock up on anything?</h1>
         <button class="choice" id="bu1">We need more weapons<button>

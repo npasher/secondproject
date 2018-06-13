@@ -9,10 +9,10 @@ canvas.height = 350;
 var canvasWidth = 650;
 var canvasHeight = 350;
 
-var river = true;
+var river = false;
 var box = false;
 var fork = false;
-var homebase = true;
+var homebase = false;
 
 var player = new Sprite("./public/assets/images/sprites/hero.png", 640, 470, 5, 8, 0, 6, 0, 94, 0, 260, 3);
 riverURL = new Image();
@@ -24,19 +24,19 @@ forkURL.src = backgrounds.forkBkgrd;
 homebaseURL = new Image();
 homebaseURL.src = backgrounds.homebaseBkgrd;
 
-function riverInit() {
+function roundInit() {
   playerURL.src = player.url;
   riverURL;
   boxURL;
   forkURL;
   homebaseURL;
 
-  window.requestAnimationFrame(riverStart);
+  window.requestAnimationFrame(roundStart);
 }
 
-function riverStart() {
+function roundStart() {
   if (river) {
-    frameRateId = setInterval(riverDraw, 100);
+    frameRateId = setInterval(riverDraw, 50);
   }
   else if (box) {
     frameRateId = setInterval(riverDraw, 50);
