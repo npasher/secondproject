@@ -202,7 +202,7 @@ function scene1(){
         timeOfDay += 10;
         calcStats();
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Luckily, there's a bridge about a mile south! Unluckily, you had to make is past the troll. The team spends an extra 3 hours getting across.</h1>
+            `<h1 class="action-title text-center">Luckily, there's a bridge about a mile south! Unluckily, you had to make it past the troll. The team spends an extra 3 hours getting across.</h1>
             <button class="continue">Continue</button>`
         );
         $(".continue").click(function(){
@@ -564,7 +564,7 @@ function prepare(){
 //user can save their game into the database
 function save(){
     $(".jbGame").html(
-        `<h1 class="action-title text-center">Save your game?.</h1>
+        `<h1 class="action-title text-center">Save your game?</h1>
         <form>
             <div class="form-group">
                 <label for="formGroupExampleInput">Enter Player Name</label>
