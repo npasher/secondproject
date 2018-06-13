@@ -15,12 +15,12 @@ body{
     height:350px;
     width:650px;
 }
-.star{
+/* .star{
     position:absolute;
     width:1px;
     height:1px;
     background-color:#ffff;
-}
+} */
 .intro{/*Animation, size and text color.*/
     font-family:"Press Start 2P",cursive;
     position:absolute;
