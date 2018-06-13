@@ -1,4 +1,4 @@
-$(document).ready(function(){
+//game and stats variables
 var win = false;
 var team = "";
 var teamStealth = 0;
@@ -18,6 +18,86 @@ var defense = 0;
 var offense = 0;
 var charm = 0;
 
+startGame();
+
+function startGame(){
+    win = false;
+    team = "";
+    teamStealth = 0;
+    teamDefense = 0;
+    teamOffense = 0;
+    teamCharm = 0;
+    
+    weight = 0;
+    uncomfort = -20;
+    armor = 10;
+    weapons = 10;
+    tools = 10;
+    timeOfDay = 0;
+    
+    stealth = 0;
+    defense = 0;
+    offense = 0;
+    charm = 0;
+
+    $(".jbGame").html(`
+        <h1 class="action-title text-center">Choose a team!</h1>
+        <p class="action-info">Avengers: High offense, low stealth.</p>
+        <button class="choice" id="avenge">Select</button>
+        <br>
+        <br>
+        <p class="action-info">Justice League: High Defense, low charm.</p>
+        <button class="choice" id="justice">Select</button>
+        <br>
+        <br>
+        <p class="action-info">Ghostbusteres: High charm, low defense.</p>
+        <button class="choice" id="ghost">Select</button>
+        <br>
+        <br>
+        <p class="action-info">Supernatural Duo: High stealth, low offense.</p>
+        <button class="choice" id="super">Select</button>`
+    );
+
+    //starts the game by having the user select a team
+    $("#avenge").click(function(){
+        team = "The Avengers";
+        teamStealth = 10;
+        teamDefense = 30;
+        teamOffense = 40;
+        teamCharm = 20;
+        calcStats();
+        chooseWeapons();
+    });
+    $("#justice").click(function(){
+        team = "The Justice League";
+        teamStealth = 20;
+        teamDefense = 40;
+        teamOffense = 30;
+        teamCharm = 10;
+        calcStats();
+        chooseWeapons();
+    });
+    $("#super").click(function(){
+        team = "The Supernatural Duo";
+        teamStealth = 40;
+        teamDefense = 20;
+        teamOffense = 10;
+        teamCharm = 30;
+        calcStats();
+        chooseWeapons();
+    });
+    $("#ghost").click(function(){
+        team = "The Ghostbusters";
+        teamStealth = 30;
+        teamDefense = 10;
+        teamOffense = 20;
+        teamCharm = 40;
+        calcStats();
+        chooseWeapons();
+    });
+}
+
+//calculates the stats of the player's team
 function calcStats(){
     stealth = (-weight-timeOfDay-uncomfort+teamStealth)/100;
     defense = (armor-uncomfort+teamDefense-timeOfDay)/100;
@@ -30,46 +110,7 @@ function calcStats(){
     console.log("charm is " + charm);
 };
 
-$("#avenge").click(function(){
-    team = "The Avengers";
-    teamStealth = 10;
-    teamDefense = 30;
-    teamOffense = 40;
-    teamCharm = 20;
-    calcStats();
-    chooseWeapons();
-});
-
-$("#justice").click(function(){
-    team = "The Justice League";
-    teamStealth = 20;
-    teamDefense = 40;
-    teamOffense = 30;
-    teamCharm = 10;
-    calcStats();
-    chooseWeapons();
-});
-
-$("#super").click(function(){
-    team = "The Supernatural Duo";
-    teamStealth = 40;
-    teamDefense = 20;
-    teamOffense = 10;
-    teamCharm = 30;
-    calcStats();
-    chooseWeapons();
-});
-
-$("#ghost").click(function(){
-    team = "The Ghostbusters";
-    teamStealth = 30;
-    teamDefense = 10;
-    teamOffense = 20;
-    teamCharm = 40;
-    calcStats();
-    chooseWeapons();
-});
-
+//user selects how many weapons and armor they would like to take. this will increase and decrease certain stats
 function chooseWeapons(){
     $(".jbGame").html(
         `<h1 class="action-title text-center">How many weapons will ${team} take on their journey?</h1>
@@ -79,34 +120,29 @@ function chooseWeapons(){
         <button class="choice" id="w3">3</button>
         <button class="choice" id="w4">4</button>`
     );
-
     $("#w0").click(function(){
         weight -=10;
         calcStats();
         chooseArmor();
     });
-
     $("#w1").click(function(){
         weapons += 10;
         weight += 10;
         calcStats();
         chooseArmor();
     });
-
     $("#w2").click(function(){
         weapons += 20;
         weight += 20;
         calcStats();
         chooseArmor();
     });
-
     $("#w3").click(function(){
         weapons += 30;
         weight += 30;
         calcStats();
         chooseArmor();
     });
-
     $("#w4").click(function(){
         weapons += 40;
         weight += 40;
@@ -114,7 +150,6 @@ function chooseWeapons(){
         chooseArmor();
     });
 };
-
 function chooseArmor(){
     $(".jbGame").html(
         `<h1 class="action-title text-center">How much armor will ${team} take on their journey?</h1>
@@ -124,34 +159,29 @@ function chooseArmor(){
         <button class="choice" id="a3">3</button>
         <button class="choice" id="a4">4</button>`
     );
-
     $("#a0").click(function(){
         weight -= 10;
         calcStats();
         scene1();
     });
-
     $("#a1").click(function(){
         armor += 10;
         weight += 10;
         calcStats();
         scene1();
     });
-
     $("#a2").click(function(){
         armor += 20;
         weight += 20;
         calcStats();
         scene1();
     });
-
     $("#a3").click(function(){
         armor += 30;
         weight += 30;
         calcStats();
         scene1();
     });
-
     $("#a4").click(function(){
         armor += 40;
         weight += 40;
@@ -160,13 +190,13 @@ function chooseArmor(){
     });
 };
 
+//scene one: user will have to decide between 2 scenerios that decrease different stats
 function scene1(){
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} comes across a river. What do you do?</h1>
         <button class="choice" id="r1">Find a way around delaying the party.<button>
         <button class="choice" id="r2">Ford the river causing a wet and irritated party.</button>`
     );
-
     $("#r1").click(function(){
         uncomfort -= 10;
         timeOfDay += 10;
@@ -179,7 +209,6 @@ function scene1(){
             scene2();
         });
     });
-
     $("#r2").click(function(){
         uncomfort += 10;
         weight += 10;
@@ -194,13 +223,13 @@ function scene1(){
     });
 }
 
+//scene two: user decides to open a box or leave it alone. opening the box could result in a good or bad outcome
 function scene2(){
     $(".jbGame").html(
         `<h1 class="action-title text-center">Directly in the path appears a mysterious, glowing box. WHAT'S IN THE BOX!?!?</h1>
         <button class="choice" id="b1">Open the box! It could hold a game winning tool!<button>
         <button class="choice" id="b2">Leave it alone. It smells funny.</button>`
     );
-
     $("#b1").click(function(){
         var rand = Math.random();
         console.log(rand);
@@ -249,7 +278,6 @@ function scene2(){
             });
         }
     });
-
     $("#b2").click(function(){
         $(".jbGame").html(
             `<h1 class="action-title text-center">${team} leaves the box alone. Everyone will wonder what would have happened forever.</h1>
@@ -261,6 +289,7 @@ function scene2(){
     });
 }
 
+//scene three: user can choose one of 3 options but the response is based purely off their current stats and doesn't change anything
 function scene3(){
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} sees a fork in the road a ways in the distance. Which way do you go?</h1>
@@ -305,6 +334,7 @@ function scene3(){
     });
 }
 
+//scene four: user chooses to up one of their stats, lowering another.
 function scene4(){
     $(".jbGame").html(
         `<h1 class="action-title text-center">Homebase call and asks if you need any reienforcements. Do you need to stock up on anything?</h1>
@@ -313,7 +343,6 @@ function scene4(){
         <button class="choice" id="bu3">We need more camoflauge</button>
         <button class="choice" id="bu4">We don't need to waste anymore time</button>`
     );
-
     $("#bu1").click(function(){
         weapons += 30;
         timeOfDay += 20;
@@ -327,7 +356,6 @@ function scene4(){
             outcome();
         });
     });
-
     $("#bu2").click(function(){
         armor += 30;
         timeOfDay += 20;
@@ -341,7 +369,6 @@ function scene4(){
             outcome();
         });
     });
-
     $("#bu3").click(function(){
         uncomfort -= 30;
         timeOfDay += 20;
@@ -354,7 +381,6 @@ function scene4(){
             outcome();
         });
     });
- 
     $("#bu4").click(function(){
         $(".jbGame").html(
             `<h1 class="action-title text-center">The team bravely continues on without any additional help. No delays here!</h1>
@@ -367,6 +393,7 @@ function scene4(){
     });
 }
 
+//the final stage of the game. start of the ending flow
 function outcome(){
     if (stealth>0.9){
         stealth = 0.9;
@@ -495,8 +522,12 @@ function negotiate(){
     if (charm>rand){
         win = true;
         $(".jbGame").html(
-            `<h1 class="action-title text-center">${team} has charmed their way into the aliens' hearts. Return home with new fb friends.</h1>`
+            `<h1 class="action-title text-center">${team} has charmed their way into the aliens' hearts. Return home with new fb friends.</h1>
+            <button class="continue">Prepare defenses</button>`
         );
+        $(".continue").click(function(){
+            prepare();
+        });
     }else{
         $(".jbGame").html(
             `<h1 class="action-title text-center">Uh oh! The aliens don't look amused at your persuasion techniques...</h1>
@@ -530,6 +561,7 @@ function prepare(){
     };
 };
 
+//user can save their game into the database
 function save(){
     $(".jbGame").html(
         `<h1 class="action-title text-center">Save your game?.</h1>
@@ -542,9 +574,69 @@ function save(){
                 <label for="formGroupExampleInput">Enter Email</label>
                 <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
             </div>
-            <button class="continue" id="existingPlayer>I'm a returning player</button>
+            <button class="continue" id="existingPlayer">I'm a returning player</button>
             <button class="continue" id="newPlayer">I'm a new player</button>
         </form>`
     );
+
+    $("#existingPlayer").click(function(){
+        event.preventDefault();
+        
+        var won = 0;
+        var lost = 0;
+        if (win === true){
+            won = 1;
+        }else{
+            lost = 1;
+        }
+        var oldPlayer = {
+            email: $("#playerEmail").val().trim(),
+            wins: won,
+            losses: lost
+        }
+
+        $.post("/api/return", oldPlayer).then(function(data){
+            console.log(data); 
+        });
+
+        $(".jbGame").html(
+            `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+            <button class="cotinue">Play Again</button>`
+        );
+        $(".continue").click(function(){
+            startGame();
+        });
+
+    });
+
+    $("#newPlayer").click(function(){
+        event.preventDefault();
+
+        var won = 0;
+        var lost = 0;
+        if (win === true){
+            won = 1;
+        }else{
+            lost = 1;
+        }
+        var newPlayer = {
+            name: $("#playerName").val().trim(),
+            email: $("#playerEmail").val().trim(),
+            wins: won,
+            losses: lost
+        }
+
+        $.post("/api/new", newPlayer).then(function(data){
+            console.log(data); 
+        });
+
+        $(".jbGame").html(
+            `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+            <button class="cotinue">Play Again</button>`
+        );
+        $(".continue").click(function(){
+            startGame();
+        });
+
+    });
 }
-});
