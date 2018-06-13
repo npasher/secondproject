@@ -1,3 +1,6 @@
+window.onload=function(){
+  document.getElementById("introAudio").play();
+}
 const numStars=100;//Sets number of displayed stars.//
 for (let i=0;i<numStars;i++){// For every star we want to display
   let star=document.createElement("div");  
@@ -10,7 +13,7 @@ for (let i=0;i<numStars;i++){// For every star we want to display
 function getRandomPosition(){//Retrieves random x,y value based on container size.//
   let y=window.innerWidth;
   let x=window.innerHeight;
-    let randomX=Math.floor(Math.random()*x);
-    let randomY=Math.floor(Math.random()*y);
+  let randomX=Math.floor(Math.random()*x);
+  let randomY=Math.floor(Math.random()*y);
     return [randomX,randomY];
 }
