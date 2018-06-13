@@ -1,3 +1,4 @@
+var win = false;
 var team = "";
 var teamStealth = 0;
 var teamDefense = 0;
@@ -159,8 +160,6 @@ function chooseArmor(){
 };
 
 function scene1(){
-    river = true;
-    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} comes across a river. What do you do?</h1>
         <button class="choice" id="r1">Find a way around delaying the party.<button>
@@ -168,8 +167,6 @@ function scene1(){
     );
 
     $("#r1").click(function(){
-        stopInterval();
-        trollSceneInit();
         uncomfort -= 10;
         timeOfDay += 10;
         calcStats();
@@ -178,8 +175,6 @@ function scene1(){
             <button class="continue">Continue</button>`
         );
         $(".continue").click(function(){
-            // stopInterval();
-            // resetPlayer();
             scene2();
         });
     });
@@ -193,23 +188,12 @@ function scene1(){
             <button class="continue">Continue</button>`
         );
         $(".continue").click(function(){
-            // resetPlayer();
-            // stopInterval();
             scene2();
         });
     });
 }
 
 function scene2(){
-    stopInterval();
-    // resetPlayer();
-    // player.dx = 0;
-    river = false;
-    box = true;
-    console.log(river);
-    console.log(box);
-    console.log(fork);
-    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Directly in the path appears a mysterious, glowing box. WHAT'S IN THE BOX!?!?</h1>
         <button class="choice" id="b1">Open the box! It could hold a game winning tool!<button>
@@ -277,11 +261,6 @@ function scene2(){
 }
 
 function scene3(){
-    stopInterval();
-    player.dx = 0;
-    box = false;
-    fork = true;
-    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} sees a fork in the road a ways in the distance. Which way do you go?</h1>
         <button class="choice" id="f1">Head left toward the creepy forest.<button>
@@ -326,10 +305,6 @@ function scene3(){
 }
 
 function scene4(){
-    stopInterval();
-    fork = false;
-    homebase = true;
-    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Homebase call and asks if you need any reienforcements. Do you need to stock up on anything?</h1>
         <button class="choice" id="bu1">We need more weapons<button>
@@ -416,8 +391,12 @@ function outcome(){
         });
     }else{
         $(".jbGame").html(
-            `<h1 class="action-title text-center">The team has found their way into a dense forest and is hopelessly lost. They fail to reach the UFO site. Return home in shame.</h1>`
+            `<h1 class="action-title text-center">The team has found their way into a dense forest and is hopelessly lost. They fail to reach the UFO site. Return home in shame.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     }
 }
 
@@ -435,14 +414,23 @@ function anythingThere(){
     } else {
         var rand2 = Math.random();
         if (rand2>0.5){
-            console.log("Nothing's here... Guess you should go home and report findings.");
+            win = true;
             $(".jbGame").html(
-                `<h1 class="action-title text-center">Nothing's here... Guess ${team} should go home and report their findings.</h1>`
+                `<h1 class="action-title text-center">Nothing's here... Guess ${team} should go home and report their findings.</h1>
+                <button class="continue">Save</button>`
             );
+            $(".continue").click(function(){
+                save();
+            });
         }else{
+            win = true;
             $(".jbGame").html(
-                `<h1 class="action-title text-center">There's no one here now, but it looks like someone's definitely made a disturbance. Go home and report back evidence.</h1>`
+                `<h1 class="action-title text-center">There's no one here now, but it looks like someone's definitely made a disturbance. Go home and report back evidence.</h1>
+                <button class="continue">Save</button>`
             );
+            $(".continue").click(function(){
+                save();
+            });
         };
     };
 };
@@ -450,9 +438,14 @@ function anythingThere(){
 function spotted(){
     var rand = Math.random();
     if(stealth>rand){
+        win = true;
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Looks like the team is flying under the radar. Snoop around undetected. Report back with cool photos and evidence!</h1>`
+            `<h1 class="action-title text-center">Looks like the team is flying under the radar. Snoop around undetected. Report back with cool photos and evidence!</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     }else{
         $(".jbGame").html(
             `<h1 class="action-title text-center">The aliens have spotted you! ...ooo and they look pissed. What's the plan?</h1>
@@ -476,13 +469,22 @@ function confrontation(){
     var rand = Math.random();
     console.log(rand);
     if (offense>rand){
+        win = true;
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Woo! The team has kept the aliens at bay. Take time to explore and record evidence. Report back findings.</h1>`
+            `<h1 class="action-title text-center">Woo! The team has kept the aliens at bay. Take time to explore and record evidence. Report back findings.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     }else{
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Looks like the team has lost the fight... Tend to your injuries and return home.</h1>`
+            `<h1 class="action-title text-center">Looks like the team has lost the fight... Tend to your injuries and return home.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     };
 };
 
@@ -490,6 +492,7 @@ function negotiate(){
     var rand = Math.random();
     console.log(rand);
     if (charm>rand){
+        win = true;
         $(".jbGame").html(
             `<h1 class="action-title text-center">${team} has charmed their way into the aliens' hearts. Return home with new fb friends.</h1>`
         );
@@ -507,13 +510,39 @@ function negotiate(){
 function prepare(){
     var rand2 = Math.random()
     if (defense>rand2){
-        console.log("Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.");
+        win = true;
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>`
+            `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     }else{
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>`
+            `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>
+            <button class="continue">Save</button>`
         );
+        $(".continue").click(function(){
+            save();
+        });
     };
 };
+
+function save(){
+    $(".jbGame").html(
+        `<h1 class="action-title text-center">Save your game?.</h1>
+        <form>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Enter Player Name</label>
+                <input type="text" class="form-control" id="playerName" placeholder="plyr1">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Enter Email</label>
+                <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
+            </div>
+            <button class="continue" id="existingPlayer>I'm a returning player</button>
+            <button class="continue" id="newPlayer">I'm a new player</button>
+        </form>`
+    );
+}
