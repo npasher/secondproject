@@ -113,6 +113,27 @@ function updatePlayer() {
   }
 }
 
+function roundUpdatePlayer() {
+  // Updates the frame index
+  player.srcCurFrame = ++player.srcCurFrame % player.srcTotFrame;
+  // Calculates the x coordinate for spritesheet
+  player.srcx = player.srcCurFrame * player.srcWidth;
+  // Clear already drawn sprite before new sprite renders
+  ctx.clearRect(player.dx, player.dy, player.srcWidth, player.srcHeight);
+  // Movement logic
+  if (player.dirRight && player.dx < ((canvasWidth - 200) - player.srcWidth) / 2) {
+    player.dx += player.speed;
+  }
+  else { 
+    player.dx = ((canvasWidth - 200) - player.srcWidth) / 2;
+    player.dirRight = false;
+    player.srcCurFrame = 0;
+    player.srcx = 0;
+    player.srcy = 0;
+    player.srcTotFrame = 1;
+  }
+}
+
 function stopInterval() {
   clearInterval(frameRateId);
 }
@@ -120,6 +141,8 @@ function stopInterval() {
 function deathOutcome () {
   ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
 }
+
+
 
 // STARTS THE ANIMATION
 

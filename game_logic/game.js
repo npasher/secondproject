@@ -176,6 +176,8 @@ function scene1(){
             <button class="continue">Continue</button>`
         );
         $(".continue").click(function(){
+            // stopInterval();
+            // resetPlayer();
             scene2();
         });
     });
@@ -189,6 +191,8 @@ function scene1(){
             <button class="continue">Continue</button>`
         );
         $(".continue").click(function(){
+            // resetPlayer();
+            // stopInterval();
             scene2();
         });
     });
@@ -196,7 +200,8 @@ function scene1(){
 
 function scene2(){
     stopInterval();
-    player.dx = 0;
+    // resetPlayer();
+    // player.dx = 0;
     river = false;
     box = true;
     console.log(river);
@@ -319,9 +324,10 @@ function scene3(){
 }
 
 function scene4(){
-    box = false;
+    stopInterval();
+    fork = false;
     homebase = true;
-    riverInit();
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Homebase call and asks if you need any reienforcements. Do you need to stock up on anything?</h1>
         <button class="choice" id="bu1">We need more weapons<button>
