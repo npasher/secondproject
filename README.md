@@ -8,6 +8,7 @@ texturePacker?
 "player" character sprite: 
   character sprites by: tokka
   https://opengameart.org/content/2d-hero
+  
 "troll" character sprite: 
   Author: craftpix.net
   https://opengameart.org/content/2d-game-trolls-sprite
@@ -19,4 +20,9 @@ texturePacker?
   Copyright/Attribution Notice: 
   Jaqueline Martin
   https://opengameart.org/content/isometric-metall-chest
+
+"supply crate" sprite: 
+  Author: 
+  Cpt_Flash
+  https://opengameart.org/content/2d-wooden-box
 
