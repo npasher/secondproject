@@ -31,8 +31,10 @@ trollURL = new Image();
 trollURL.src = props.troll;
 treasureChestURL = new Image();
 treasureChestURL.src = props.treasureChest;
+
 darkForestURL = new Image();
 darkForestURL.src = backgrounds.darkForestBkgrd;
+
 destructForestURL = new Image();
 destructForestURL.src = backgrounds.destructForestBkgrd;
 supplyCrateURL = new Image();
@@ -112,10 +114,10 @@ function darkForestSceneInit() {
 
 function drawDarkForestScene() {
   ctx.drawImage(darkForestURL, 0, 0, 650, 350);
-  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 200, player.srcWidth, player.srcHeight);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 240, player.srcWidth, player.srcHeight);
 }
 
-//darkForestSceneInit();
+// darkForestSceneInit();
 
 function destructForestSceneInit() {
   playerURL.src = player.url;
@@ -125,10 +127,10 @@ function destructForestSceneInit() {
 
 function drawDestructForestScene() {
   ctx.drawImage(destructForestURL, 0, 0, 650, 350);
-  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 200, player.srcWidth, player.srcHeight);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 120, 140, player.srcWidth, player.srcHeight);
 
 }
-//destructForestSceneInit();
+// destructForestSceneInit();
 
 function forestFallSceneInit() {
   playerURL.src = player.url;

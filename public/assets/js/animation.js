@@ -24,12 +24,15 @@ var backgrounds = {
   boxBkgrd: "./public/assets/images/backgrounds/box.jpg",
   forkBkgrd: "./public/assets/images/backgrounds/fork.jpg",
   homebaseBkgrd: "./public/assets/images/backgrounds/homebase.jpg",
-  bridgeBkgrd: "./public/assets/images/backgrounds/bridge.jpg"
+  bridgeBkgrd: "./public/assets/images/backgrounds/bridge.jpg",
+  darkForestBkgrd: "./public/assets/images/backgrounds/darkForest.jpg",
+  destructForestBkgrd: "./public/assets/images/backgrounds/destructForest.jpg",
 }
 
 var props = {
   troll: "./public/assets/images/sprites/troll.png",
-  treasureChest: "./public/assets/images/sprites/treasureChest.png"
+  treasureChest: "./public/assets/images/sprites/treasureChest.png",
+  supplyCrate: "./public/assets/images/sprites/supplyCrate.png"
 }
 
 var alienFound = false;
