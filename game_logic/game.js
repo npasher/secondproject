@@ -526,7 +526,7 @@ function negotiate(){
             <button class="continue">Prepare defenses</button>`
         );
         $(".continue").click(function(){
-            prepare();
+            save();
         });
     }else{
         $(".jbGame").html(
