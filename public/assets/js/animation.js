@@ -23,7 +23,13 @@ var backgrounds = {
   riverBkgrd: "./public/assets/images/backgrounds/river.jpg",
   boxBkgrd: "./public/assets/images/backgrounds/box.jpg",
   forkBkgrd: "./public/assets/images/backgrounds/fork.jpg",
-  homebaseBkgrd: "./public/assets/images/backgrounds/homebase.jpg"
+  homebaseBkgrd: "./public/assets/images/backgrounds/homebase.jpg",
+  bridgeBkgrd: "./public/assets/images/backgrounds/bridge.jpg"
+}
+
+var props = {
+  troll: "./public/assets/images/sprites/troll.png",
+  treasureChest: "./public/assets/images/sprites/treasureChest.png"
 }
 
 var alienFound = false;

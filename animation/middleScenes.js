@@ -24,6 +24,22 @@ forkURL.src = backgrounds.forkBkgrd;
 homebaseURL = new Image();
 homebaseURL.src = backgrounds.homebaseBkgrd;
 
+trollURL = new Image();
+trollURL.src = props.troll;
+
+function trollSceneInit() {
+  playerURL.src = player.url;
+  trollURL;
+  boxURL;
+  window.requestAnimationFrame(drawTrollScene);
+}
+
+function drawTrollScene() {
+  ctx.drawImage(boxURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 80, 282, player.srcWidth, player.srcHeight, 200, 200, player.srcWidth, player.srcHeight);
+  ctx.drawImage(trollURL, 0, 0, 200, 172, 300, 100, 200, 172);
+}
+
 function roundInit() {
   playerURL.src = player.url;
   riverURL;

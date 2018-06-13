@@ -168,6 +168,8 @@ function scene1(){
     );
 
     $("#r1").click(function(){
+        stopInterval();
+        trollSceneInit();
         uncomfort -= 10;
         timeOfDay += 10;
         calcStats();
