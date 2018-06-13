@@ -36,6 +36,7 @@ function start() {
 
 function draw() {
   // console.log("checking draw loop");
+  ufo.speed = 9;
   updateFrame();
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
@@ -89,7 +90,7 @@ function updatePlayer() {
     player.dx += player.speed;
   }
   else { 
-    player.dx = (canvasWidth - player.srcWidth + 1) / 2;
+    player.dx = (canvasWidth - player.srcWidth) / 2;
     player.dirRight = false;
     player.srcCurFrame = 0;
     player.srcx = 0;

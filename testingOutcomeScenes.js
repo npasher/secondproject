@@ -83,14 +83,20 @@ function drawSneakAround() {
 // }
 
 function spottedInit() {
-
+  playerURL;
+  ufoURL;
+  window.requestAnimationFrame(spottedStart);
 }
 
-function drawSpottedInit() {
-
+function spottedStart() {
+  frameRateId = setInterval(draw, 100);
 }
 
-// spottedInit();
+// function drawSpottedInit() {
+
+// }
+
+spottedInit();
 
 function fightInit() {
   playerShootingURL;
@@ -174,14 +180,25 @@ function playerInjury() {
 // injuredInit();
 
 function negotiateInit() {
-  
+  playerURL;
+  ufoURL;
+  window.requestAnimationFrame(negotiateStart);
+}
+
+function negotiateStart() {
+  frameRateId = setInterval(drawNegotiate, 50);
 }
 
 function drawNegotiate() {
-
+  ufo.speed = 10;
+  ufo.dx = 400;
+  ufo.dy = 200;
+  spinningUFO();
+  ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
+  ctx.drawImage(playerURL, 240, 94, player.srcWidth, player.srcHeight, 250, 260, player.srcWidth, player.srcHeight);
 }
 
-// negotiationInit();
+// negotiateInit();
 
 function charmedInit() {
 
@@ -194,11 +211,22 @@ function drawCharmed() {
 // charmedInit();
 
 function abductInit() {
+  playerURL;
+  ufoURL;
+  window.requestAnimationFrame(abductStart);
+}
 
+function abductStart() {
+  frameRateId = setInterval(drawAbduct, 50);
 }
 
 function drawAbduct() {
-
+  ufo.speed = 10;
+  ufo.dx = 325;
+  ufo.dy = 30;
+  spinningUFO();
+  ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
+  ctx.drawImage(playerURL, 325, 282, player.srcWidth, player.srcHeight, 310, 150, player.srcWidth, player.srcHeight);
 }
 
 // abductInit();
