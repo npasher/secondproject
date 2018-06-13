@@ -79,8 +79,8 @@ function openBoxSceneInit() {
 
 function drawOpenBoxScene() {
   ctx.drawImage(boxURL, 0, 0, 650, 350);
-  ctx.drawImage(treasureChestURL, 400, 300, 100, 100, 300, 215, 100, 100);
-  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 200, player.srcWidth, player.srcHeight);
+  ctx.drawImage(treasureChestURL, 400, 300, 100, 100, 300, 220, 100, 100);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 220, player.srcWidth, player.srcHeight);
 }
 
 // openBoxSceneInit();
@@ -94,8 +94,8 @@ function leaveBoxSceneInit() {
 
 function drawLeaveBoxScene() {
   ctx.drawImage(boxURL, 0, 0, 650, 350);
-  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 200, player.srcWidth, player.srcHeight);
-  ctx.drawImage(treasureChestURL, 500, 300, 100, 100, 300, 215, 100, 100);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 220, player.srcWidth, player.srcHeight);
+  ctx.drawImage(treasureChestURL, 500, 300, 100, 100, 300, 220, 100, 100);
 }
 
 // leaveBoxSceneInit();
@@ -168,11 +168,11 @@ function resupplySceneInit() {
 
 function drawResupplyScene() {
   ctx.drawImage(homebaseURL, 0, 0, 650, 350);
-  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 100, 230, player.srcWidth, player.srcHeight);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 216, 230, player.srcWidth, player.srcHeight);
   ctx.drawImage(supplyCrateURL, 0, 0, 512, 512, 400, 240, 80, 80);
 }
 
-// resupplySceneInit();
+resupplySceneInit();
 
 function noSupplySceneInit() {
   playerURL.src = player.url;

@@ -14,7 +14,6 @@ var box = false;
 var fork = false;
 var homebase = false;
 
-// var player = new Sprite("./public/assets/images/sprites/hero.png", 640, 470, 5, 8, 0, 6, 0, 94, 0, 260, 3);
 riverURL = new Image();
 riverURL.src = backgrounds.riverBkgrd;
 boxURL = new Image();
@@ -24,21 +23,169 @@ forkURL.src = backgrounds.forkBkgrd;
 homebaseURL = new Image();
 homebaseURL.src = backgrounds.homebaseBkgrd;
 
+
+bridgeURL = new Image();
+bridgeURL.src = backgrounds.bridgeBkgrd;
 trollURL = new Image();
 trollURL.src = props.troll;
+treasureChestURL = new Image();
+treasureChestURL.src = props.treasureChest;
+
+darkForestURL = new Image();
+darkForestURL.src = backgrounds.darkForestBkgrd;
+
+destructForestURL = new Image();
+destructForestURL.src = backgrounds.destructForestBkgrd;
+supplyCrateURL = new Image();
+supplyCrateURL.src = props.supplyCrate;
+
+
 
 function trollSceneInit() {
   playerURL.src = player.url;
   trollURL;
-  boxURL;
+  bridgeURL;
   window.requestAnimationFrame(drawTrollScene);
 }
 
 function drawTrollScene() {
-  ctx.drawImage(boxURL, 0, 0, 650, 350);
-  ctx.drawImage(playerURL, 80, 282, player.srcWidth, player.srcHeight, 200, 200, player.srcWidth, player.srcHeight);
-  ctx.drawImage(trollURL, 0, 0, 200, 172, 300, 100, 200, 172);
+  ctx.drawImage(bridgeURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 80, 282, player.srcWidth, player.srcHeight, 120, 135, player.srcWidth, player.srcHeight);
+  ctx.drawImage(trollURL, 0, 0, 200, 172, 335, 35, 200, 172);
 }
+
+// trollSceneInit();
+
+function noTrollSceneInit() {
+  playerURL.src = player.url;
+  bridgeURL;
+  window.requestAnimationFrame(drawNoTrollScene);
+}
+
+function drawNoTrollScene() {
+  ctx.drawImage(bridgeURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 240, 282, player.srcWidth, player.srcHeight, 220, 200, player.srcWidth, player.srcHeight);
+}
+
+// noTrollSceneInit();
+
+function openBoxSceneInit() {
+  playerURL.src = player.url;
+  treasureChestURL;
+  boxURL;
+  window.requestAnimationFrame(drawOpenBoxScene);
+}
+
+function drawOpenBoxScene() {
+  ctx.drawImage(boxURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 220, player.srcWidth, player.srcHeight);
+  ctx.drawImage(treasureChestURL, 400, 300, 100, 100, 300, 225, 100, 100);
+}
+
+// openBoxSceneInit();
+
+function leaveBoxSceneInit() {
+  playerURL.src = player.url;
+  treasureChestURL;
+  boxURL;
+  window.requestAnimationFrame(drawLeaveBoxScene);
+}
+
+function drawLeaveBoxScene() {
+  ctx.drawImage(boxURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 220, player.srcWidth, player.srcHeight);
+  ctx.drawImage(treasureChestURL, 500, 300, 100, 100, 300, 225, 100, 100);
+}
+
+// leaveBoxSceneInit();
+
+
+
+
+
+
+
+
+function darkForestSceneInit() {
+  playerURL.src = player.url;
+  darkForestURL;
+  window.requestAnimationFrame(drawDarkForestScene);
+}
+
+function drawDarkForestScene() {
+  ctx.drawImage(darkForestURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 240, player.srcWidth, player.srcHeight);
+}
+
+// darkForestSceneInit();
+
+function destructForestSceneInit() {
+  playerURL.src = player.url;
+  destructForestURL;
+  window.requestAnimationFrame(drawDestructForestScene);
+}
+
+function drawDestructForestScene() {
+  ctx.drawImage(destructForestURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 120, 140, player.srcWidth, player.srcHeight);
+
+}
+// destructForestSceneInit();
+
+function forestFallSceneInit() {
+  playerURL.src = player.url;
+  darkForestURL;
+  boxURL
+  window.requestAnimationFrame(drawForestFallScene);
+}
+
+function drawForestFallScene() {
+  ctx.drawImage(boxURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 400, 282, 100, player.srcHeight, 300, 220, player.srcWidth, player.srcHeight);
+}
+
+// forestFallSceneInit();
+
+function emergeFromForestSceneInit() {
+  playerURL.src = player.url;
+  boxURL;
+  window.requestAnimationFrame(drawEmergeFromForestScene);
+}
+
+function drawEmergeFromForestScene() {
+  ctx.drawImage(boxURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 200, player.srcWidth, player.srcHeight);
+}
+
+// emergeFromForestSceneInit();
+
+function resupplySceneInit() {
+  playerURL.src = player.url;
+  homebaseURL;
+  supplyCrateURL;
+  window.requestAnimationFrame(drawResupplyScene);
+}
+
+function drawResupplyScene() {
+  ctx.drawImage(homebaseURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 216, 230, player.srcWidth, player.srcHeight);
+  ctx.drawImage(supplyCrateURL, 0, 0, 512, 512, 400, 240, 80, 80);
+}
+
+// resupplySceneInit();
+
+function noSupplySceneInit() {
+  playerURL.src = player.url;
+  homebaseURL;
+  window.requestAnimationFrame(drawNoSupplyScene);
+}
+
+function drawNoSupplyScene() {
+  ctx.drawImage(homebaseURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 230, player.srcWidth, player.srcHeight);
+}
+
+// noSupplySceneInit();
 
 function roundInit() {
   playerURL.src = player.url;
@@ -94,6 +241,7 @@ function roundDraw() {
     player.dy = 220;
     ctx.drawImage(boxURL, 0, 0, 650, 350);
     ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
+    ctx.drawImage(treasureChestURL, 500, 300, 100, 100, 300, 225, 100, 100);
   }
   else if (fork) {
     roundUpdatePlayer();

@@ -160,6 +160,8 @@ function chooseArmor(){
 };
 
 function scene1(){
+    river = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} comes across a river. What do you do?</h1>
         <button class="choice" id="r1">Find a way around delaying the party.<button>
@@ -167,6 +169,8 @@ function scene1(){
     );
 
     $("#r1").click(function(){
+        stopInterval();
+        trollSceneInit();
         uncomfort -= 10;
         timeOfDay += 10;
         calcStats();
@@ -180,6 +184,8 @@ function scene1(){
     });
 
     $("#r2").click(function(){
+        stopInterval();
+        noTrollSceneInit();
         uncomfort += 10;
         weight += 10;
         calcStats();
@@ -194,6 +200,10 @@ function scene1(){
 }
 
 function scene2(){
+    stopInterval();
+    river = false;
+    box = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Directly in the path appears a mysterious, glowing box. WHAT'S IN THE BOX!?!?</h1>
         <button class="choice" id="b1">Open the box! It could hold a game winning tool!<button>
@@ -201,6 +211,8 @@ function scene2(){
     );
 
     $("#b1").click(function(){
+        stopInterval();
+        openBoxSceneInit();
         var rand = Math.random();
         console.log(rand);
         if (rand<.25){
@@ -250,6 +262,8 @@ function scene2(){
     });
 
     $("#b2").click(function(){
+        stopInterval();
+        leaveBoxSceneInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">${team} leaves the box alone. Everyone will wonder what would have happened forever.</h1>
             <button class="continue">Continue</button>`
@@ -261,6 +275,11 @@ function scene2(){
 }
 
 function scene3(){
+    stopInterval();
+    player.dx = 0;
+    box = false;
+    fork = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} sees a fork in the road a ways in the distance. Which way do you go?</h1>
         <button class="choice" id="f1">Head left toward the creepy forest.<button>
@@ -269,6 +288,8 @@ function scene3(){
     );
     $(".choice").click(function(){
         if (stealth>=.5){
+            stopInterval();
+            darkForestSceneInit();
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Your team ventures onward with very little interference.</h1>
                 <button class="continue">Continue</button>`
@@ -277,6 +298,8 @@ function scene3(){
                 scene4();
             });
         }else if(offense>=.5){
+            stopInterval();
+            destructForestSceneInit();
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Your team ventures onward obliterating the dense bush they find around the corner.</h1>
                 <button class="continue">Continue</button>`
@@ -285,6 +308,8 @@ function scene3(){
                 scene4();
             });
         }else if(defense>=.5){
+            stopInterval();
+            forestFallSceneInit();
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Your team ventures onward and trips across some roots (how embarassing). Luckily, no one was hurt.</h1>
                 <button class="continue">Continue</button>`
@@ -293,6 +318,8 @@ function scene3(){
                 scene4();
             });
         }else{
+            stopInterval();
+            emergeFromForestSceneInit();
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Your team ventures forward narrowly avoiding a catastrophic trap of roots and bushes.</h1>
                 <button class="continue">Continue</button>`
@@ -305,6 +332,10 @@ function scene3(){
 }
 
 function scene4(){
+    stopInterval();
+    fork = false;
+    homebase = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Homebase call and asks if you need any reienforcements. Do you need to stock up on anything?</h1>
         <button class="choice" id="bu1">We need more weapons<button>
@@ -314,6 +345,8 @@ function scene4(){
     );
 
     $("#bu1").click(function(){
+        stopInterval();
+        resupplySceneInit();
         weapons += 30;
         timeOfDay += 20;
         weight += 20;
@@ -328,6 +361,8 @@ function scene4(){
     });
 
     $("#bu2").click(function(){
+        stopInterval();
+        resupplySceneInit();
         armor += 30;
         timeOfDay += 20;
         weight += 20;
@@ -342,6 +377,8 @@ function scene4(){
     });
 
     $("#bu3").click(function(){
+        stopInterval();
+        resupplySceneInit();
         uncomfort -= 30;
         timeOfDay += 20;
         $(".jbGame").html(
@@ -355,6 +392,8 @@ function scene4(){
     });
  
     $("#bu4").click(function(){
+        stopInterval();
+        noResupplySceneInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">The team bravely continues on without any additional help. No delays here!</h1>
             <button class="continue">Continue to the UFO site</button>`

@@ -45,11 +45,13 @@ var frameRateId;
 
 // Creates url in correct formate for the drawImage();
 playerURL = new Image();
+playerURL.src = player.url; 
 ufoURL = new Image();
+ufoURL.src = ufo.url;
 
-function init() {
-  playerURL.src = player.url; 
-  ufoURL.src = ufo.url;
+function outcomeInit() {
+  playerURL;
+  ufoURL;
   window.requestAnimationFrame(start);
 }
 
