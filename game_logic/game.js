@@ -595,107 +595,107 @@ function negotiate(){
 }
 
 function prepare(){
-    var rand2 = Math.random()
-    if (defense>rand2){
-        stopInterval();
-        fightInit();
-        win = true;
-        $(".jbGame").html(
-            `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>
-            <button class="continue">Save</button>`
-        );
-        $(".continue").click(function(){
-            save();
-        });
-    }else{
-        stopInterval();
-        abductInit();
-        $(".jbGame").html(
-            `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>
-            <button class="continue">Save</button>`
-        );
-        $(".continue").click(function(){
-            save();
-        });
-    };
+  var rand2 = Math.random()
+  if (defense>rand2){
+      stopInterval();
+      fightInit();
+      win = true;
+      $(".jbGame").html(
+          `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>
+          <button class="continue">Save</button>`
+      );
+      $(".continue").click(function(){
+          save();
+      });
+  }else{
+      stopInterval();
+      abductInit();
+      $(".jbGame").html(
+          `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>
+          <button class="continue">Save</button>`
+      );
+      $(".continue").click(function(){
+          save();
+      });
+  };
 };
 
 //user can save their game into the database
 function save(){
-    $(".jbGame").html(
-        `<h1 class="action-title text-center">Save your game?</h1>
-        <form>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Enter Player Name</label>
-                <input type="text" class="form-control" id="playerName" placeholder="plyr1">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Enter Email</label>
-                <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
-            </div>
-            <button class="continue" id="existingPlayer">I'm a returning player</button>
-            <button class="continue" id="newPlayer">I'm a new player</button>
-        </form>`
-    );
+  $(".jbGame").html(
+      `<h1 class="action-title text-center">Save your game?</h1>
+      <form>
+          <div class="form-group">
+              <label for="formGroupExampleInput">Enter Player Name</label>
+              <input type="text" class="form-control" id="playerName" placeholder="plyr1">
+          </div>
+          <div class="form-group">
+              <label for="formGroupExampleInput">Enter Email</label>
+              <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
+          </div>
+          <button class="continue" id="existingPlayer">I'm a returning player</button>
+          <button class="continue" id="newPlayer">I'm a new player</button>
+      </form>`
+  );
 
-    $("#existingPlayer").click(function(){
-        event.preventDefault();
-        
-        var won = 0;
-        var lost = 0;
-        if (win === true){
-            won = 1;
-        }else{
-            lost = 1;
-        }
-        var oldPlayer = {
-            email: $("#playerEmail").val().trim(),
-            wins: won,
-            losses: lost
-        }
+  $("#existingPlayer").click(function(){
+      event.preventDefault();
+      
+      var won = 0;
+      var lost = 0;
+      if (win === true){
+          won = 1;
+      }else{
+          lost = 1;
+      }
+      var oldPlayer = {
+          email: $("#playerEmail").val().trim(),
+          wins: won,
+          losses: lost
+      }
 
-        $.post("/api/return", oldPlayer).then(function(data){
-            console.log(data); 
-        });
+      $.post("/api/return", oldPlayer).then(function(data){
+          console.log(data); 
+      });
 
-        $(".jbGame").html(
-            `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-            <button class="cotinue">Play Again</button>`
-        );
-        $(".continue").click(function(){
-            startGame();
-        });
+      $(".jbGame").html(
+          `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+          <button class="cotinue">Play Again</button>`
+      );
+      $(".continue").click(function(){
+          startGame();
+      });
 
-    });
+  });
 
-    $("#newPlayer").click(function(){
-        event.preventDefault();
+  $("#newPlayer").click(function(){
+      event.preventDefault();
 
-        var won = 0;
-        var lost = 0;
-        if (win === true){
-            won = 1;
-        }else{
-            lost = 1;
-        }
-        var newPlayer = {
-            name: $("#playerName").val().trim(),
-            email: $("#playerEmail").val().trim(),
-            wins: won,
-            losses: lost
-        }
+      var won = 0;
+      var lost = 0;
+      if (win === true){
+          won = 1;
+      }else{
+          lost = 1;
+      }
+      var newPlayer = {
+          name: $("#playerName").val().trim(),
+          email: $("#playerEmail").val().trim(),
+          wins: won,
+          losses: lost
+      }
 
-        $.post("/api/new", newPlayer).then(function(data){
-            console.log(data); 
-        });
+      $.post("/api/new", newPlayer).then(function(data){
+          console.log(data); 
+      });
 
-        $(".jbGame").html(
-            `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-            <button class="cotinue">Play Again</button>`
-        );
-        $(".continue").click(function(){
-            startGame();
-        });
+      $(".jbGame").html(
+          `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+          <button class="cotinue">Play Again</button>`
+      );
+      $(".continue").click(function(){
+          startGame();
+      });
 
-    });
+  });
 }
