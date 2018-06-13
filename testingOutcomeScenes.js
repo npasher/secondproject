@@ -96,7 +96,7 @@ function spottedStart() {
 
 // }
 
-spottedInit();
+// spottedInit();
 
 function fightInit() {
   playerShootingURL;
