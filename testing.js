@@ -135,15 +135,16 @@ function drawDestructForestScene() {
 function forestFallSceneInit() {
   playerURL.src = player.url;
   darkForestURL;
+  boxURL
   window.requestAnimationFrame(drawForestFallScene);
 }
 
 function drawForestFallScene() {
-  ctx.drawImage(darkForestURL, 0, 0, 650, 350);
-
+  ctx.drawImage(boxURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 400, 282, 100, player.srcHeight, 300, 220, player.srcWidth, player.srcHeight);
 }
 
-//forestFallSceneInit();
+// forestFallSceneInit();
 
 function emergeFromForestSceneInit() {
   playerURL.src = player.url;
@@ -156,7 +157,7 @@ function drawEmergeFromForestScene() {
   ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 200, player.srcWidth, player.srcHeight);
 }
 
-//emergeFromForestSceneInit();
+// emergeFromForestSceneInit();
 
 function resupplySceneInit() {
   playerURL.src = player.url;
@@ -167,10 +168,11 @@ function resupplySceneInit() {
 
 function drawResupplyScene() {
   ctx.drawImage(homebaseURL, 0, 0, 650, 350);
-  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 200, player.srcWidth, player.srcHeight);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 100, 230, player.srcWidth, player.srcHeight);
+  ctx.drawImage(supplyCrateURL, 0, 0, 512, 512, 400, 240, 80, 80);
 }
 
-//resupplySceneInit();
+// resupplySceneInit();
 
 function noSupplySceneInit() {
   playerURL.src = player.url;
@@ -180,8 +182,10 @@ function noSupplySceneInit() {
 
 function drawNoSupplyScene() {
   ctx.drawImage(homebaseURL, 0, 0, 650, 350);
-  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 200, player.srcWidth, player.srcHeight);
+  ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 230, player.srcWidth, player.srcHeight);
 }
+
+// noSupplySceneInit();
 
 
 
