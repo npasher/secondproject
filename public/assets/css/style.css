@@ -5,7 +5,7 @@ body{
     background-repeat:no-repeat;
 }
 .container{
-    background-image: url("../images/scanlines.png");
+    /* background-image: url("../images/scanlines.png"); */
     background-position:center;
     margin:1% 1% 0 2.5%;
 }
@@ -15,12 +15,6 @@ body{
     height:350px;
     width:650px;
 }
-/* .star{
-    position:absolute;
-    width:1px;
-    height:1px;
-    background-color:#ffff;
-} */
 .intro{/*Animation, size and text color.*/
     font-family:"Press Start 2P",cursive;
     position:absolute;
@@ -51,7 +45,4 @@ body{
     position:absolute;
     bottom:0px;
     margin-left:25%;
-}
-.jumbotron{
-    background-color:transparent;
 }
