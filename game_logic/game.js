@@ -1,3 +1,4 @@
+$(document).ready(function(){
 var win = false;
 var team = "";
 var teamStealth = 0;
@@ -546,3 +547,4 @@ function save(){
         </form>`
     );
 }
+});
