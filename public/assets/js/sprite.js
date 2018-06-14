@@ -20,6 +20,22 @@ var Sprite = function (url, spriteSheetW, spriteSheetH, spriteSheetRows, spriteS
   this.speed = speed;
 }; 
 
+// function resetPlayer() {
+//   player.spriteSheetRows = 5;
+//   player.spriteSheetCols = 8;
+//   player.srcCurFrame = 1;
+//   player.srcTotFrame = 6;  
+//   player.srcx = 0;
+//   player.srcy = 94;
+//   player.srcWidth = player.spriteSheetW / player.spriteSheetCols;
+//   player.srcHeight =player.spriteSheetH /player.spriteSheetRows;
+//   player.dx = 0;
+//   player.dy = 250;
+//   player.dWidth = player.srcWidth;
+//   player.dHeight = player.srcHeight;
+//   player.speed = 3;
+// }
+
 // paris, mumbai, moscow all need to be changed
 var backgrounds = {
   cairoBkgrd: "./public/assets/images/backgrounds/cairo.jpg",

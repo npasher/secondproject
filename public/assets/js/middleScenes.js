@@ -106,8 +106,6 @@ function drawSupplyChoice() {
   ctx.drawImage(armorURL, 325, 50, 325, 250);
 }
 
-
-
 function trollSceneInit() {
   playerURL.src = player.url;
   trollURL;
@@ -164,15 +162,6 @@ function drawLeaveBoxScene() {
   ctx.drawImage(treasureChestURL, 500, 300, 100, 100, 300, 225, 100, 100);
 }
 
-// leaveBoxSceneInit();
-
-
-
-
-
-
-
-
 function darkForestSceneInit() {
   playerURL.src = player.url;
   darkForestURL;
@@ -195,7 +184,6 @@ function destructForestSceneInit() {
 function drawDestructForestScene() {
   ctx.drawImage(destructForestURL, 0, 0, 650, 350);
   ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 120, 140, player.srcWidth, player.srcHeight);
-
 }
 // destructForestSceneInit();
 

@@ -1,3 +1,46 @@
+function ufoSiteInit() {
+  playerURL;
+  moscowURL;
+  window.requestAnimationFrame(drawUFOsite);
+}
+
+function drawUFOsite() {
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 0, 376, player.srcWidth, player.srcHeight, 0, 260, player.srcWidth, player.srcHeight);
+}
+
+
+
+function lostForestSceneInit() {
+  // stopInterval();
+  playerURL;
+  darkForestURL;
+  window.requestAnimationFrame(startLostForestScene);
+}
+
+function startLostForestScene() {
+  frameRateId = setInterval(drawLostForestScene, 50);
+}
+
+function drawLostForestScene() {
+  lostForestLoop();
+  player.dy = 250;
+  ctx.drawImage(darkForestURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
+}
+
+function lostForestLoop() {
+  console.log(player);
+  player.srcCurFrame = ++player.srcCurFrame % player.srcTotFrame;
+  player.srcx = player.srcCurFrame * player.srcWidth;
+  ctx.clearRect(player.dx, player.dy, player.dWidth, player.dHeight);
+  if (player.dirRight && player.dx < 640) {
+    player.dx += player.speed;
+  } else {
+    stopInterval();
+  }
+};
+
 function alienSpottedInit() {
   playerURL;
   ufoURL;

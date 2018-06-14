@@ -459,6 +459,8 @@ function outcome(){
     var rand = Math.random();
     console.log("hello" + rand);
     if (rand>0.08){
+        stopInterval();
+        ufoSiteInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">The team has made it to the UFO site!</h1>
             <button class="continue">Investigate the site</button>`
@@ -467,6 +469,8 @@ function outcome(){
             anythingThere();
         });
     }else{
+        stopInterval();
+        
         $(".jbGame").html(
             `<h1 class="action-title text-center">The team has found their way into a dense forest and is hopelessly lost. They fail to reach the UFO site. Return home in shame.</h1>
             <button class="continue">Save</button>`
