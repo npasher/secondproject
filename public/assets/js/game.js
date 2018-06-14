@@ -674,7 +674,7 @@ function save(){
           losses: lost
       }
 
-      $.post("/api/return", oldPlayer).then(function(data){
+      $.post("/api/email", oldPlayer).then(function(data){
           console.log(data); 
       });
 
