@@ -9,8 +9,6 @@ function drawUFOsite() {
   ctx.drawImage(playerURL, 0, 376, player.srcWidth, player.srcHeight, 0, 260, player.srcWidth, player.srcHeight);
 }
 
-
-
 function lostForestSceneInit() {
   // stopInterval();
   playerURL;

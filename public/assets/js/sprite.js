@@ -20,22 +20,6 @@ var Sprite = function (url, spriteSheetW, spriteSheetH, spriteSheetRows, spriteS
   this.speed = speed;
 }; 
 
-// function resetPlayer() {
-//   player.spriteSheetRows = 5;
-//   player.spriteSheetCols = 8;
-//   player.srcCurFrame = 1;
-//   player.srcTotFrame = 6;  
-//   player.srcx = 0;
-//   player.srcy = 94;
-//   player.srcWidth = player.spriteSheetW / player.spriteSheetCols;
-//   player.srcHeight =player.spriteSheetH /player.spriteSheetRows;
-//   player.dx = 0;
-//   player.dy = 250;
-//   player.dWidth = player.srcWidth;
-//   player.dHeight = player.srcHeight;
-//   player.speed = 3;
-// }
-
 // paris, mumbai, moscow all need to be changed
 var backgrounds = {
   cairoBkgrd: "./public/assets/images/backgrounds/cairo.jpg",
@@ -77,9 +61,6 @@ var spotBeam = new Sprite("./public/assets/images/sprites/ufo1/ufov2.png", 696, 
 var playerShooting = new Sprite("./public/assets/images/sprites/hero.png", 640, 470, 5, 8, 0, 8, 0, 0, 326, 260, 3);
 
 var playerInjured = new Sprite("./public/assets/images/sprites/hero.png", 640, 470, 5, 8, 1, 7, 240, 282, 326, 260, 3);
-
-
-
 
 // Creates url in correct format for the drawImage();
 avengersURL = new Image();
@@ -131,4 +112,3 @@ supplyCrateURL.src = props.supplyCrate;
 
 cropCircleURL = new Image();
 cropCircleURL.src = backgrounds.cropCircleBkgrd;
-
