@@ -1,7 +1,11 @@
 {
     "development": {
       "username": "root",
+<<<<<<< HEAD
       "password": "H@mletgq98",
+=======
+      "password": "",
+>>>>>>> 8e725d2dde33469a228d8350e0e8f23f24683569
       "database": "alien",
       "host": "127.0.0.1",
       "port": 3306,
@@ -9,7 +13,11 @@
     },
     "test": {
       "username": "root",
+<<<<<<< HEAD
       "password": "H@mletgq98",
+=======
+      "password": "",
+>>>>>>> 8e725d2dde33469a228d8350e0e8f23f24683569
       "database": "alien",
       "host": "127.0.0.1",
       "port": 3306,
@@ -22,4 +30,3 @@
     }
   }
 }
-  
