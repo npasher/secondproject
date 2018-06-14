@@ -274,10 +274,19 @@ function drawAbduct() {
   ufo.speed = 10;
   ufo.dx = 325;
   ufo.dy = 30;
+  player.dx = 315;
   spinningUFO();
+  abductLoop();
   ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
-  ctx.drawImage(playerURL, 325, 282, player.srcWidth, player.srcHeight, 310, 150, player.srcWidth, player.srcHeight);
+  ctx.drawImage(playerURL, 325, 282, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
+}
+
+function abductLoop() {
+
+  if (player.dy > 70) {
+    player.dy -= player.speed;
+  } 
 }
 
 // abductInit();
