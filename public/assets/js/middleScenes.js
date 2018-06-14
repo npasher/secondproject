@@ -37,6 +37,75 @@ var homebase = false;
 // supplyCrateURL = new Image();
 // supplyCrateURL.src = props.supplyCrate;
 
+function teamSceneInit() {
+  avengersURL;
+  justiceLeagueURL;
+  ghostbustersURL;
+  supernaturalURL;
+  window.requestAnimationFrame(startTeamScene);
+}
+
+function startTeamScene() {
+  frameRateId = setInterval(drawTeamScene, 10);
+}
+
+function drawTeamScene() {
+  ctx.fillStyle = "steelblue";
+  ctx.fillRect(0, 0, 650, 350);
+  ctx.drawImage(avengersURL, 0, 5, 320, 170);
+  ctx.drawImage(justiceLeagueURL, 325, 5, 320, 170);
+  ctx.drawImage(ghostbustersURL, 0, 175, 320, 170);
+  ctx.drawImage(supernaturalURL, 325, 175, 320, 170);
+}
+
+// teamSceneInit();
+
+// function preparationsSceneInit() {
+//   avengersURL;
+//   justiceLeagueURL;
+//   ghostbustersURL;
+//   supernaturalURL;
+//   window.requestAnimationFrame(startPreparationsScene);
+// }
+
+// function startPreparationsScene() {
+//   frameRateId = setInterval(drawPreparationsScene, 10);
+// }
+
+// function drawPreparationsScene() {
+//   ctx.fillStyle = "steelblue";
+//   ctx.fillRect(0, 0, 650, 350);
+//   if (team === "The Avengers") {
+//     ctx.drawImage(avengersURL, 0, 0, 650, 350);
+//   } 
+//   else if (team === "The Justice League") {
+//     ctx.drawImage(justiceLeagueURL, 0, 0, 650, 350);
+//   }
+//   else if (team === "The Supernatural Duo") {
+//     ctx.drawImage(supernaturalURL, 0, 0, 650, 350);
+//   }
+//   else {
+//     ctx.drawImage(ghostbustersURL, 0, 0, 650, 350);
+//   }
+// }
+
+function supplyChoiceInit() {
+  weaponsURL;
+  armorURL;
+  window.requestAnimationFrame(startSupplyChoice);
+}
+
+function startSupplyChoice() {
+  frameRateId = setInterval(drawSupplyChoice, 10);
+}
+
+function drawSupplyChoice() {
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, 650, 350);
+  ctx.drawImage(weaponsURL, 0, 50, 325, 250);
+  ctx.drawImage(armorURL, 325, 50, 325, 250);
+}
+
 
 
 function trollSceneInit() {

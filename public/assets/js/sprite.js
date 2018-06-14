@@ -44,7 +44,14 @@ var backgrounds = {
 var props = {
   troll: "./public/assets/images/sprites/troll.png",
   treasureChest: "./public/assets/images/sprites/treasureChest.png",
-  supplyCrate: "./public/assets/images/sprites/supplyCrate.png"
+  supplyCrate: "./public/assets/images/sprites/supplyCrate.png",
+  avengersLogo: "./public/assets/images/sprites/avengersLogo.png",
+  justiceLeagueLogo: "./public/assets/images/sprites/justiceLeagueLogo.png", 
+  ghostbustersLogo: "./public/assets/images/sprites/ghostbustersLogo.png",
+  supernaturalLogo: "./public/assets/images/sprites/supernaturalLogo.png",
+  assortedWeapons:"./public/assets/images/sprites/weapons.png",
+  assortedArmor:"./public/assets/images/sprites/armor.png",
+
 }
 
 // Creation of game characters
@@ -55,9 +62,24 @@ var playerShooting = new Sprite("./public/assets/images/sprites/hero.png", 640, 
 
 var playerInjured = new Sprite("./public/assets/images/sprites/hero.png", 640, 470, 5, 8, 1, 7, 240, 282, 326, 260, 3);
 
-// console.log(playerInjured);
 
-// Creates url in correct formate for the drawImage();
+
+
+// Creates url in correct format for the drawImage();
+avengersURL = new Image();
+avengersURL.src = props.avengersLogo;
+justiceLeagueURL = new Image();
+justiceLeagueURL.src = props.justiceLeagueLogo;
+ghostbustersURL = new Image();
+ghostbustersURL.src = props.ghostbustersLogo;
+supernaturalURL = new Image();
+supernaturalURL.src = props.supernaturalLogo;
+
+weaponsURL = new Image();
+weaponsURL.src = props.assortedWeapons;
+armorURL = new Image();
+armorURL.src = props.assortedArmor;
+
 playerURL = new Image();
 playerURL.src = player.url; 
 ufoURL = new Image();
