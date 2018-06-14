@@ -7,6 +7,7 @@
 const express=require("express");
 const bodyParser=require("body-parser");
 const env=require('dotenv');
+const path = require('path');
 // Sets up the Express App
 // =============================================================
 const app=express();
@@ -23,14 +24,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-// Static directory
-app.use(express.static("public"));
+
 
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-require("./routes/teams-api-routes.js")(app);
-require("./routes/locations-api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
+
+// Static directory/this should come after our routes
+console.log(__dirname);
+app.use('/public', express.static("public"));
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
