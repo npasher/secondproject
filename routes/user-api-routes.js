@@ -15,14 +15,6 @@ module.exports = function(app) {
 
   //POST route for creating new user
   app.post("/api/new", function(req, res) {
-    if (req.body.status === "wins") {
-      var wins = 1;
-      var losses = 0;
-    } else {
-      var wins = 0;
-      var losses = 1;
-    }
-    
     console.log(req.body);
     db.user
       .create({
