@@ -669,7 +669,6 @@ function save(){
           lost = 1;
       }
       var oldPlayer = {
-          name: $("#playerName").val().trim(),
           email: $("#playerEmail").val().trim(),
           wins: won,
           losses: lost
