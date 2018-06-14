@@ -39,9 +39,11 @@ module.exports = function(app) {
         }
       })
       .then(function(res) {
+        console.log("hey");
+        console.log(req.body.wins);
         wins = res.wins;
         losses = res.losses;
-        if (req.body.status === "wins") {
+        if (req.body.wins === "1") {
           wins++;
         } else {
           losses++;
