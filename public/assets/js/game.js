@@ -578,7 +578,7 @@ function negotiate(){
         win = true;
         $(".jbGame").html(
             `<h1 class="action-title text-center">${team} has charmed their way into the aliens' hearts. Return home with new fb friends.</h1>
-            <button class="continue">Prepare defenses</button>`
+            <button class="continue">Save</button>`
         );
         $(".continue").click(function(){
             save();
