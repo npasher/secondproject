@@ -206,7 +206,7 @@ function scene1(){
     roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} comes across a river. What do you do?</h1>
-        <button class="btn choice" id="r1">Find a way around delaying the party.<button> <p>     </p>
+        <button class="btn choice" id="r1">Find a way around delaying the party.</button> <br><br>
         <button class="btn choice" id="r2">Ford the river causing a wet and irritated party.</button>`
     );
     $("#r1").click(function(){
@@ -247,7 +247,7 @@ function scene2(){
     roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Directly in the path appears a mysterious, glowing box. WHAT'S IN THE BOX!?!?</h1>
-        <button class="btn choice" id="b1">Open the box! It could hold a game winning tool!<button> <p>     </p>
+        <button class="btn choice" id="b1">Open the box! It could hold a game winning tool!</button> <br><br>
         <button class="btn choice" id="b2">Leave it alone. It smells funny.</button>`
     );
     $("#b1").click(function(){
@@ -322,8 +322,8 @@ function scene3(){
     roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} sees a fork in the road a ways in the distance. Which way do you go?</h1>
-        <button class="btn choice" id="f1">Head left toward the creepy forest.<button> <p>     </p>
-        <button class="btn choice" id="f2">Head straight to the steep slope.</button> <p>     </p>
+        <button class="btn choice" id="f1">Head left toward the creepy forest.</button> <br><br>
+        <button class="btn choice" id="f2">Head straight to the steep slope.</button> <br><br>
         <button class="btn choice" id="f3">Head left to toward the sinister mountain.</button>`
     );
     $(".choice").click(function(){
@@ -379,9 +379,9 @@ function scene4(){
     roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Homebase call and asks if you need any reinforcements. Do you need to stock up on anything?</h1>
-        <button class="btn choice" id="bu1">We need more weapons<button><p>     </p>
-        <button class="btn choice" id="bu2">We need more armor</button><p>     </p>
-        <button class="btn choice" id="bu3">We need more camoflauge</button><p>     </p>
+        <button class="btn choice" id="bu1">We need more weapons</button> <br><br>
+        <button class="btn choice" id="bu2">We need more armor</button> <br><br>
+        <button class="btn choice" id="bu3">We need more camoflauge</button> <br><br>
         <button class="btn choice" id="bu4">We don't need to waste anymore time</button>`
     );
     $("#bu1").click(function(){
@@ -540,7 +540,7 @@ function spotted(){
         spottedInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">The aliens have spotted you! ...ooo and they look pissed. What's the plan?</h1>
-            <button class="btn choice" id="s1">Fight<button><p>     </p>
+            <button class="btn choice" id="s1">Fight</button> <br><br>
             <button class="btn choice" id="s2">Negotiate</button>`
         );
 
