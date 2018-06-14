@@ -14,7 +14,7 @@ module.exports = function(app) {
   });
 
   //POST route for creating new user
-  app.post("/api/newU", function(req, res) {
+  app.post("/api/new", function(req, res) {
     if (req.body.status === "wins") {
       var wins = 1;
       var losses = 0;
@@ -26,7 +26,7 @@ module.exports = function(app) {
     console.log(req.body);
     db.user
       .create({
-        userName: req.body.userName,
+        userName: req.body.name,
         email: req.body.email,
         wins: wins,
         losses: losses
