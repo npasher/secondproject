@@ -40,6 +40,7 @@ function startGame(){
     offense = 0;
     charm = 0;
 
+    stopInterval();
     teamSceneInit();
 
     $(".jbGame").html(`
@@ -716,6 +717,7 @@ function save(){
                 <button class="btn continue">Play Again</button>`
             );
             $(".continue").click(function(){
+                stopInterval();
                 startGame();
             });
         }
