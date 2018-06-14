@@ -42,11 +42,10 @@ body{
     }
 }
 .btn{
-    position:absolute;
-    bottom:375px;
-    margin-left:38%;
-    /* border-color: white;
-    padding: 25px; */
+    position:relative;
+    top:50%;
+    margin-left:41%;
+    background-color:transparent;
 }
 
 button{
