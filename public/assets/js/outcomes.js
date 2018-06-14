@@ -1,8 +1,52 @@
+function ufoSiteInit() {
+  playerURL;
+  moscowURL;
+  window.requestAnimationFrame(drawUFOsite);
+}
+
+function drawUFOsite() {
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, 0, 376, player.srcWidth, player.srcHeight, 0, 260, player.srcWidth, player.srcHeight);
+}
+
+
+
+function lostForestSceneInit() {
+  // stopInterval();
+  playerURL;
+  darkForestURL;
+  window.requestAnimationFrame(startLostForestScene);
+}
+
+function startLostForestScene() {
+  frameRateId = setInterval(drawLostForestScene, 50);
+}
+
+function drawLostForestScene() {
+  lostForestLoop();
+  player.dy = 250;
+  ctx.drawImage(darkForestURL, 0, 0, 650, 350);
+  ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
+}
+
+function lostForestLoop() {
+  console.log(player);
+  player.srcCurFrame = ++player.srcCurFrame % player.srcTotFrame;
+  player.srcx = player.srcCurFrame * player.srcWidth;
+  ctx.clearRect(player.dx, player.dy, player.dWidth, player.dHeight);
+  if (player.dirRight && player.dx < 640) {
+    player.dx += player.speed;
+  } else {
+    stopInterval();
+  }
+};
+
 function alienSpottedInit() {
   playerURL;
   ufoURL;
   window.requestAnimationFrame(alienSpottedStart);
 }
+
 function alienSpottedStart() {
   frameRateId = setInterval(drawAlienSpotted, 50);
 }
@@ -16,7 +60,6 @@ function drawAlienSpotted() {
   ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, 90, 376, player.srcWidth, player.srcHeight, 50, 260, player.srcWidth, player.srcHeight);
- 
 }
 
 function spinningUFO() {
@@ -61,6 +104,7 @@ function drawAlienEvidence() {
 function sneakAroundInit() {
   playerURL;
   ufoURL;
+  moscowURL;
   window.requestAnimationFrame(sneakAroundStart);
 }
 
@@ -87,6 +131,7 @@ function drawSneakAround() {
 function spottedInit() {
   playerURL;
   ufoURL;
+  moscowURL;
   window.requestAnimationFrame(spottedStart);
 }
 
@@ -229,10 +274,19 @@ function drawAbduct() {
   ufo.speed = 10;
   ufo.dx = 325;
   ufo.dy = 30;
+  player.dx = 315;
   spinningUFO();
+  abductLoop();
   ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
-  ctx.drawImage(playerURL, 325, 282, player.srcWidth, player.srcHeight, 310, 150, player.srcWidth, player.srcHeight);
+  ctx.drawImage(playerURL, 325, 282, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
+}
+
+function abductLoop() {
+
+  if (player.dy > 70) {
+    player.dy -= player.speed;
+  } 
 }
 
 // abductInit();

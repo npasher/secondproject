@@ -40,6 +40,8 @@ function startGame(){
     offense = 0;
     charm = 0;
 
+    teamSceneInit();
+
     $(".jbGame").html(`
         <h1 class="action-title text-center">Choose a team!</h1>
         <p class="action-info">Avengers: High offense, low stealth.</p>
@@ -112,6 +114,8 @@ function calcStats(){
 
 //user selects how many weapons and armor they would like to take. this will increase and decrease certain stats
 function chooseWeapons(){
+    stopInterval();
+    supplyChoiceInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">How many weapons will ${team} take on their journey?</h1>
         <button class="choice" id="w0">0<button>
@@ -160,29 +164,34 @@ function chooseArmor(){
         <button class="choice" id="a4">4</button>`
     );
     $("#a0").click(function(){
+        stopInterval();
         weight -= 10;
         calcStats();
         scene1();
     });
     $("#a1").click(function(){
+        stopInterval();
         armor += 10;
         weight += 10;
         calcStats();
         scene1();
     });
     $("#a2").click(function(){
+        stopInterval();
         armor += 20;
         weight += 20;
         calcStats();
         scene1();
     });
     $("#a3").click(function(){
+        stopInterval();
         armor += 30;
         weight += 30;
         calcStats();
         scene1();
     });
     $("#a4").click(function(){
+        stopInterval();
         armor += 40;
         weight += 40;
         calcStats();
@@ -192,8 +201,9 @@ function chooseArmor(){
 
 //scene one: user will have to decide between 2 scenerios that decrease different stats
 function scene1(){
-  river = true;
-  roundInit();
+    stopInterval()
+    river = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} comes across a river. What do you do?</h1>
         <button class="choice" id="r1">Find a way around delaying the party.<button>
@@ -449,6 +459,8 @@ function outcome(){
     var rand = Math.random();
     console.log("hello" + rand);
     if (rand>0.08){
+        stopInterval();
+        ufoSiteInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">The team has made it to the UFO site!</h1>
             <button class="continue">Investigate the site</button>`
@@ -457,6 +469,8 @@ function outcome(){
             anythingThere();
         });
     }else{
+        stopInterval();
+        lostForestSceneInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">The team has found their way into a dense forest and is hopelessly lost. They fail to reach the UFO site. Return home in shame.</h1>
             <button class="continue">Save</button>`

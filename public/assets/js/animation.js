@@ -38,6 +38,7 @@ function draw() {
   // console.log("checking draw loop");
   ufo.speed = 9;
   updateFrame();
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
 }
