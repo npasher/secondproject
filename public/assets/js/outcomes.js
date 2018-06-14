@@ -46,6 +46,7 @@ function alienSpottedInit() {
   ufoURL;
   window.requestAnimationFrame(alienSpottedStart);
 }
+
 function alienSpottedStart() {
   frameRateId = setInterval(drawAlienSpotted, 50);
 }
@@ -59,7 +60,6 @@ function drawAlienSpotted() {
   ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, 90, 376, player.srcWidth, player.srcHeight, 50, 260, player.srcWidth, player.srcHeight);
- 
 }
 
 function spinningUFO() {
@@ -104,6 +104,7 @@ function drawAlienEvidence() {
 function sneakAroundInit() {
   playerURL;
   ufoURL;
+  moscowURL;
   window.requestAnimationFrame(sneakAroundStart);
 }
 
@@ -130,6 +131,7 @@ function drawSneakAround() {
 function spottedInit() {
   playerURL;
   ufoURL;
+  moscowURL;
   window.requestAnimationFrame(spottedStart);
 }
 

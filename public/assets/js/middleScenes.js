@@ -50,7 +50,7 @@ function startTeamScene() {
 }
 
 function drawTeamScene() {
-  ctx.fillStyle = "steelblue";
+  ctx.fillStyle = "LemonChiffon ";
   ctx.fillRect(0, 0, 650, 350);
   ctx.drawImage(avengersURL, 0, 5, 320, 170);
   ctx.drawImage(justiceLeagueURL, 325, 5, 320, 170);

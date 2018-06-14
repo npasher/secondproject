@@ -470,7 +470,7 @@ function outcome(){
         });
     }else{
         stopInterval();
-        
+        lostForestSceneInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">The team has found their way into a dense forest and is hopelessly lost. They fail to reach the UFO site. Return home in shame.</h1>
             <button class="continue">Save</button>`
