@@ -20,8 +20,8 @@ module.exports = function(app) {
       .create({
         userName: req.body.name,
         email: req.body.email,
-        wins: wins,
-        losses: losses
+        wins: req.body.wins,
+        losses: req.body.losses
       })
       .then(function(results) {
         res.json(results);
