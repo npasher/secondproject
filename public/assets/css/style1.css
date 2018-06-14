@@ -22,7 +22,7 @@
   left:0;
   right:0;
 }
-/* If you want the content centered horizontally and vertically */
+/* Centered horizontally and vertically */
 .centered {
   position: absolute;
   top: 20%;
