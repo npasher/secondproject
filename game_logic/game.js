@@ -192,12 +192,16 @@ function chooseArmor(){
 
 //scene one: user will have to decide between 2 scenerios that decrease different stats
 function scene1(){
+  river = true;
+  roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} comes across a river. What do you do?</h1>
         <button class="choice" id="r1">Find a way around delaying the party.<button>
         <button class="choice" id="r2">Ford the river causing a wet and irritated party.</button>`
     );
     $("#r1").click(function(){
+        stopInterval();
+        trollSceneInit();
         uncomfort -= 10;
         timeOfDay += 10;
         calcStats();
@@ -210,6 +214,8 @@ function scene1(){
         });
     });
     $("#r2").click(function(){
+        stopInterval();
+        noTrollSceneInit();
         uncomfort += 10;
         weight += 10;
         calcStats();
@@ -225,12 +231,18 @@ function scene1(){
 
 //scene two: user decides to open a box or leave it alone. opening the box could result in a good or bad outcome
 function scene2(){
+    stopInterval();
+    river = false;
+    box = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Directly in the path appears a mysterious, glowing box. WHAT'S IN THE BOX!?!?</h1>
         <button class="choice" id="b1">Open the box! It could hold a game winning tool!<button>
         <button class="choice" id="b2">Leave it alone. It smells funny.</button>`
     );
     $("#b1").click(function(){
+        stopInterval();
+        openBoxSceneInit();
         var rand = Math.random();
         console.log(rand);
         if (rand<.25){
@@ -279,6 +291,8 @@ function scene2(){
         }
     });
     $("#b2").click(function(){
+        stopInterval();
+        leaveBoxSceneInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">${team} leaves the box alone. Everyone will wonder what would have happened forever.</h1>
             <button class="continue">Continue</button>`
@@ -291,6 +305,11 @@ function scene2(){
 
 //scene three: user can choose one of 3 options but the response is based purely off their current stats and doesn't change anything
 function scene3(){
+    stopInterval();
+    player.dx = 0;
+    box = false;
+    fork = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">${team} sees a fork in the road a ways in the distance. Which way do you go?</h1>
         <button class="choice" id="f1">Head left toward the creepy forest.<button>
@@ -299,6 +318,8 @@ function scene3(){
     );
     $(".choice").click(function(){
         if (stealth>=.5){
+            stopInterval();
+            darkForestSceneInit();
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Your team ventures onward with very little interference.</h1>
                 <button class="continue">Continue</button>`
@@ -307,6 +328,8 @@ function scene3(){
                 scene4();
             });
         }else if(offense>=.5){
+            stopInterval();
+            destructForestSceneInit();
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Your team ventures onward obliterating the dense bush they find around the corner.</h1>
                 <button class="continue">Continue</button>`
@@ -315,6 +338,8 @@ function scene3(){
                 scene4();
             });
         }else if(defense>=.5){
+            stopInterval();
+            forestFallSceneInit();
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Your team ventures onward and trips across some roots (how embarassing). Luckily, no one was hurt.</h1>
                 <button class="continue">Continue</button>`
@@ -323,6 +348,8 @@ function scene3(){
                 scene4();
             });
         }else{
+            stopInterval();
+            emergeFromForestSceneInit();
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Your team ventures forward narrowly avoiding a catastrophic trap of roots and bushes.</h1>
                 <button class="continue">Continue</button>`
@@ -336,6 +363,10 @@ function scene3(){
 
 //scene four: user chooses to up one of their stats, lowering another.
 function scene4(){
+    stopInterval();
+    fork = false;
+    homebase = true;
+    roundInit();
     $(".jbGame").html(
         `<h1 class="action-title text-center">Homebase call and asks if you need any reienforcements. Do you need to stock up on anything?</h1>
         <button class="choice" id="bu1">We need more weapons<button>
@@ -344,6 +375,8 @@ function scene4(){
         <button class="choice" id="bu4">We don't need to waste anymore time</button>`
     );
     $("#bu1").click(function(){
+        stopInterval();
+        resupplySceneInit();
         weapons += 30;
         timeOfDay += 20;
         weight += 20;
@@ -357,6 +390,8 @@ function scene4(){
         });
     });
     $("#bu2").click(function(){
+        stopInterval();
+        resupplySceneInit();
         armor += 30;
         timeOfDay += 20;
         weight += 20;
@@ -370,6 +405,8 @@ function scene4(){
         });
     });
     $("#bu3").click(function(){
+        stopInterval();
+        resupplySceneInit();
         uncomfort -= 30;
         timeOfDay += 20;
         $(".jbGame").html(
@@ -382,6 +419,8 @@ function scene4(){
         });
     });
     $("#bu4").click(function(){
+        stopInterval();
+        noSupplySceneInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">The team bravely continues on without any additional help. No delays here!</h1>
             <button class="continue">Continue to the UFO site</button>`
@@ -432,6 +471,8 @@ function anythingThere(){
     var rand = Math.random();
     console.log(rand);
     if (rand>0.09){
+        stopInterval();
+        alienSpottedInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">Gasp! ${team} has found aliens!</h1>
             <button class="continue">Sneak up on their landing site</button>`
@@ -442,6 +483,8 @@ function anythingThere(){
     } else {
         var rand2 = Math.random();
         if (rand2>0.5){
+            stopInterval();
+            // noAlienInit();
             win = true;
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Nothing's here... Guess ${team} should go home and report their findings.</h1>
@@ -451,6 +494,8 @@ function anythingThere(){
                 save();
             });
         }else{
+            stopInterval();
+            alienEvidenceInit();
             win = true;
             $(".jbGame").html(
                 `<h1 class="action-title text-center">There's no one here now, but it looks like someone's definitely made a disturbance. Go home and report back evidence.</h1>
@@ -466,6 +511,8 @@ function anythingThere(){
 function spotted(){
     var rand = Math.random();
     if(stealth>rand){
+        stopInterval();
+        sneakAroundInit();
         win = true;
         $(".jbGame").html(
             `<h1 class="action-title text-center">Looks like the team is flying under the radar. Snoop around undetected. Report back with cool photos and evidence!</h1>
@@ -475,6 +522,8 @@ function spotted(){
             save();
         });
     }else{
+        stopInterval();
+        spottedInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">The aliens have spotted you! ...ooo and they look pissed. What's the plan?</h1>
             <button class="choice" id="s1">Fight<button>
@@ -494,6 +543,8 @@ function spotted(){
 };
 
 function confrontation(){
+    stopInterval();
+    fightInit();
     var rand = Math.random();
     console.log(rand);
     if (offense>rand){
@@ -506,6 +557,8 @@ function confrontation(){
             save();
         });
     }else{
+        stopInterval();
+        injuredInit();
         $(".jbGame").html(
             `<h1 class="action-title text-center">Looks like the team has lost the fight... Tend to your injuries and return home.</h1>
             <button class="continue">Save</button>`
@@ -517,13 +570,15 @@ function confrontation(){
 };
 
 function negotiate(){
+    stopInterval();
+    negotiateInit();
     var rand = Math.random();
     console.log(rand);
     if (charm>rand){
         win = true;
         $(".jbGame").html(
             `<h1 class="action-title text-center">${team} has charmed their way into the aliens' hearts. Return home with new fb friends.</h1>
-            <button class="continue">Save</button>`
+            <button class="continue">Prepare defenses</button>`
         );
         $(".continue").click(function(){
             save();
@@ -540,103 +595,107 @@ function negotiate(){
 }
 
 function prepare(){
-    var rand2 = Math.random()
-    if (defense>rand2){
-        win = true;
-        $(".jbGame").html(
-            `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>
-            <button class="continue">Save</button>`
-        );
-        $(".continue").click(function(){
-            save();
-        });
-    }else{
-        $(".jbGame").html(
-            `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>
-            <button class="continue">Save</button>`
-        );
-        $(".continue").click(function(){
-            save();
-        });
-    };
+  var rand2 = Math.random()
+  if (defense>rand2){
+      stopInterval();
+      fightInit();
+      win = true;
+      $(".jbGame").html(
+          `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>
+          <button class="continue">Save</button>`
+      );
+      $(".continue").click(function(){
+          save();
+      });
+  }else{
+      stopInterval();
+      abductInit();
+      $(".jbGame").html(
+          `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>
+          <button class="continue">Save</button>`
+      );
+      $(".continue").click(function(){
+          save();
+      });
+  };
 };
 
 //user can save their game into the database
 function save(){
-    $(".jbGame").html(
-        `<h1 class="action-title text-center">Save your game?</h1>
-        <form>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Enter Player Name</label>
-                <input type="text" class="form-control" id="playerName" placeholder="plyr1">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Enter Email</label>
-                <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
-            </div>
-            <button class="continue" id="existingPlayer">I'm a returning player</button>
-            <button class="continue" id="newPlayer">I'm a new player</button>
-        </form>`
-    );
+  $(".jbGame").html(
+      `<h1 class="action-title text-center">Save your game?</h1>
+      <form>
+          <div class="form-group">
+              <label for="formGroupExampleInput">Enter Player Name</label>
+              <input type="text" class="form-control" id="playerName" placeholder="plyr1">
+          </div>
+          <div class="form-group">
+              <label for="formGroupExampleInput">Enter Email</label>
+              <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
+          </div>
+          <button class="continue" id="existingPlayer">I'm a returning player</button>
+          <button class="continue" id="newPlayer">I'm a new player</button>
+      </form>`
+  );
 
-    $("#existingPlayer").click(function(){
-        event.preventDefault();
-        
-        var won = 0;
-        var lost = 0;
-        if (win === true){
-            won = 1;
-        }else{
-            lost = 1;
-        }
-        var oldPlayer = {
-            email: $("#playerEmail").val().trim(),
-            wins: won,
-            losses: lost
-        }
+  $("#existingPlayer").click(function(){
+      event.preventDefault();
+      
+      var won = 0;
+      var lost = 0;
+      if (win === true){
+          won = 1;
+      }else{
+          lost = 1;
+      }
+      var oldPlayer = {
+          email: $("#playerEmail").val().trim(),
+          wins: won,
+          losses: lost
+      }
 
-        $.post("/api/return", oldPlayer).then(function(data){
-            console.log(data); 
-        });
+      $.post("/api/return", oldPlayer).then(function(data){
+          console.log(data); 
+      });
 
-        $(".jbGame").html(
-            `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-            <button class="cotinue">Play Again</button>`
-        );
-        $(".continue").click(function(){
-            startGame();
-        });
+      $(".jbGame").html(
+          `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+          <button class="cotinue">Play Again</button>`
+      );
+      $(".continue").click(function(){
+          startGame();
+      });
 
-    });
+  });
 
-    $("#newPlayer").click(function(){
-        event.preventDefault();
+  $("#newPlayer").click(function(){
+      event.preventDefault();
 
-        var won = 0;
-        var lost = 0;
-        if (win === true){
-            won = 1;
-        }else{
-            lost = 1;
-        }
-        var newPlayer = {
-            name: $("#playerName").val().trim(),
-            email: $("#playerEmail").val().trim(),
-            wins: won,
-            losses: lost
-        }
+      var won = 0;
+      var lost = 0;
+      if (win === true){
+          won = 1;
+      }else{
+          lost = 1;
+      }
+      var newPlayer = {
+          name: $("#playerName").val().trim(),
+          email: $("#playerEmail").val().trim(),
+          wins: won,
+          losses: lost
+      }
 
-        $.post("/api/new", newPlayer).then(function(data){
-            console.log(data); 
-        });
+      $.post("/api/new", newPlayer).then(function(data){
+          console.log(data); 
+      });
 
-        $(".jbGame").html(
-            `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-            <button class="continue">Play Again</button>`
-        );
-        $(".continue").click(function(){
-            startGame();
-        });
+      $(".jbGame").html(
+          `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+          <button class="cotinue">Play Again</button>`
+      );
+      $(".continue").click(function(){
+          startGame();
+      });
 
-    });
+  });
 }
