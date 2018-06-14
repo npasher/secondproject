@@ -37,3 +37,10 @@
 .gameText{
   color:#fff;
 }
+.btn{
+  border-color: white;
+  padding: 5px;
+}
+button:hover{
+  background-color: dimgray;
+}
