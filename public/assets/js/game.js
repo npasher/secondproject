@@ -654,6 +654,9 @@ function save(){
 
   $("#existingPlayer").click(function(){
       event.preventDefault();
+      if ($("#playerName").val() === "" || $("#playerEmail").val() === ""){
+        alert("Please enter player name and email.")
+      }else{
       
       var won = 0;
       var lost = 0;
@@ -679,37 +682,40 @@ function save(){
       $(".continue").click(function(){
           startGame();
       });
-
+    }
   });
 
-  $("#newPlayer").click(function(){
-      event.preventDefault();
+    $("#newPlayer").click(function(){
+        event.preventDefault();
+        if ($("#playerName").val() === "" || $("#playerEmail").val() === ""){
+            alert("Please enter player name and email.")
+        }else{
 
-      var won = 0;
-      var lost = 0;
-      if (win === true){
-          won = 1;
-      }else{
-          lost = 1;
-      }
-      var newPlayer = {
-          name: $("#playerName").val().trim(),
-          email: $("#playerEmail").val().trim(),
-          wins: won,
-          losses: lost
-      }
+            var won = 0;
+            var lost = 0;
+            if (win === true){
+                won = 1;
+            }else{
+                lost = 1;
+            }
+            var newPlayer = {
+                name: $("#playerName").val().trim(),
+                email: $("#playerEmail").val().trim(),
+                wins: won,
+                losses: lost
+            }
 
-      $.post("/api/new", newPlayer).then(function(data){
-          console.log(data); 
-      });
+            $.post("/api/new", newPlayer).then(function(data){
+                console.log(data); 
+            });
 
-      $(".jbGame").html(
-          `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-          <button class="continue">Play Again</button>`
-      );
-      $(".continue").click(function(){
-          startGame();
-      });
-
-  });
+            $(".jbGame").html(
+                `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+                <button class="continue">Play Again</button>`
+            );
+            $(".continue").click(function(){
+                startGame();
+            });
+        }
+    });
 }
