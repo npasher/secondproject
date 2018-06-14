@@ -157,11 +157,11 @@ function chooseWeapons(){
 function chooseArmor(){
     $(".jbGame").html(
         `<h1 class="action-title text-center">How much armor will ${team} take on their journey?</h1>
-        <button class="choice" id="a0">0<button>
-        <button class="choice" id="a1">1</button>
-        <button class="choice" id="a2">2</button>
-        <button class="choice" id="a3">3</button>
-        <button class="choice" id="a4">4</button>`
+        <btn class="choice" id="a0">0<btn>
+        <btn class="choice" id="a1">1</btn>
+        <btn class="choice" id="a2">2</btn>
+        <btn class="choice" id="a3">3</btn>
+        <btn class="choice" id="a4">4</btn>`
     );
     $("#a0").click(function(){
         stopInterval();
