@@ -669,6 +669,7 @@ function save(){
           lost = 1;
       }
       var oldPlayer = {
+          name: $("#playerName").val().trim(),
           email: $("#playerEmail").val().trim(),
           wins: won,
           losses: lost
@@ -676,15 +677,27 @@ function save(){
 
       $.post("/api/email", oldPlayer).then(function(data){
           console.log(data); 
+          $(".jbGame").html(
+            `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
+            <p>Name: ${oldPlayer.name}</p>
+            <p>Wins: ${oldPlayer.wins}</p>
+            <p>Losses: ${oldPlayer.losses}</p>
+            <br><br>
+            <button class="btn continue">Play Again?</button>`
+        ) ;
+        $(".continue").click(function(){
+            stopInterval();
+            startGame();
+        });
       });
 
-      $(".jbGame").html(
-          `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-          <button class="btn continue">Play Again</button>`
-      );
-      $(".continue").click(function(){
-          startGame();
-      });
+    //   $(".jbGame").html(
+    //       `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+    //       <button class="btn continue">Play Again</button>`
+    //   );
+    //   $(".continue").click(function(){
+    //       startGame();
+    //   });
     }
   });
 
@@ -709,16 +722,19 @@ function save(){
             }
 
             $.post("/api/new", newPlayer).then(function(data){
-                console.log(data); 
-            });
-
-            $(".jbGame").html(
-                `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-                <button class="btn continue">Play Again</button>`
-            );
-            $(".continue").click(function(){
-                stopInterval();
-                startGame();
+                console.log(data);
+                $(".jbGame").html(
+                    `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
+                    <p>Name: ${newPlayer.name}</p>
+                    <p>Wins: ${newPlayer.wins}</p>
+                    <p>Losses: ${newPlayer.losses}</p>
+                    <br><br>
+                    <button class="btn continue">Play Again?</button>`
+                ) ;
+                $(".continue").click(function(){
+                    stopInterval();
+                    startGame();
+                });
             });
         }
     });
