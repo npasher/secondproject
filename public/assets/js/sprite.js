@@ -42,7 +42,7 @@ var backgrounds = {
 }
 
 var props = {
-  troll: "./public/assets/images/sprites/troll.png",
+  troll: "./public/assets/images/sprites/Troll.png",
   treasureChest: "./public/assets/images/sprites/treasureChest.png",
   supplyCrate: "./public/assets/images/sprites/supplyCrate.png",
   avengersLogo: "./public/assets/images/sprites/avengersLogo.png",
