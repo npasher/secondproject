@@ -655,49 +655,60 @@ function save(){
   );
 
   $("#existingPlayer").click(function(){
-      event.preventDefault();
-      if ($("#playerName").val() === "" || $("#playerEmail").val() === ""){
-        alert("Please enter player name and email.")
-      }else{
-      
-      var won = 0;
-      var lost = 0;
-      if (win === true){
-          won = 1;
-      }else{
-          lost = 1;
-      }
-      var oldPlayer = {
-          email: $("#playerEmail").val().trim(),
-          wins: won,
-          losses: lost
-      }
+        event.preventDefault();
+        if ($("#playerName").val() === "" || $("#playerEmail").val() === ""){
+            alert("Please enter player name and email.")
+        }else{
+        
+            var won = 0;
+            var lost = 0;
+            if (win === true){
+                won = 1;
+            }else{
+                lost = 1;
+            }
+            var oldPlayer = {
+                // name: $("#playerName").val().trim(),
+                email: $("#playerEmail").val().trim(),
+                wins: won,
+                losses: lost
+            }
 
-    $.post("/api/email", oldPlayer).then(function(data){
-        console.log(data); 
-        //   $(".jbGame").html(
-        //     `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
-        //     <p>Name: ${oldPlayer.name}</p>
-        //     <p>Wins: ${oldPlayer.wins}</p>
-        //     <p>Losses: ${oldPlayer.losses}</p>
-        //     <br><br>
-        //     <button class="btn continue">Play Again?</button>`
-        // ) ;
-        // $(".continue").click(function(){
-        //     stopInterval();
-        //     startGame();
-        // });
-    });
+            $.post("/api/email", oldPlayer).then(function(data){
+                console.log(data);
+            });
+        }
 
-    $(".jbGame").html(
-        `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-        <button class="btn continue">Play Again</button>`
-    );
-    $(".continue").click(function(){
-        stopInterval();
-        startGame();
-    });
-    }
+        $.get("/api/" + oldPlayer.email, function(data) {
+            console.log(data);
+                $(".jbGame").html(
+                    `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
+                    <p>Name: ${data[0].userName}</p>
+                    <p>Wins: ${data[0].wins}</p>
+                    <p>Losses: ${data[0].losses}</p>
+                    <br><br>
+                    <button class="btn continue">Play Again?</button>`
+                );
+                $(".continue").click(function(){
+                    stopInterval();
+                    startGame();
+                });
+            })
+            //     console.log("returning player data");
+            //     console.log(data);
+            //     if ("#playerEmail" === data.email) {
+            //         
+            // });
+
+    // $(".jbGame").html(
+    //     `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+    //     <button class="btn continue">Play Again</button>`
+    // );
+    // $(".continue").click(function(){
+    //     stopInterval();
+    //     startGame();
+    // });
+
     });
 
     $("#newPlayer").click(function(){
@@ -721,7 +732,7 @@ function save(){
             }
 
             $.post("/api/new", newPlayer).then(function(data){
-                console.log(data);
+                // console.log(data);
                 $(".jbGame").html(
                     `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
                     <p>Name: ${newPlayer.name}</p>
