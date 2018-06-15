@@ -13,7 +13,7 @@ module.exports = function(app) {
 
   //index route loads game.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../game.html"));
+    res.sendFile(path.join(__dirname, "../index.html"));
   });
 
   // // Route to the index page
