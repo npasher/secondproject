@@ -1,42 +1,10 @@
-// // Create the canvas and attaches to html
-// var canvas = document.getElementById("canvas");
-// var ctx = canvas.getContext("2d");
-// ctx.globalCompositeOperation = "lighter";
-// canvas.width = 650;
-// canvas.height = 350;
-
-// // Height and width of canvas 
-// var canvasWidth = 650;
-// var canvasHeight = 350;
-
+// Four major middle scene variables used as flags
 var river = false;
 var box = false;
 var fork = false;
 var homebase = false;
 
-// riverURL = new Image();
-// riverURL.src = backgrounds.riverBkgrd;
-// boxURL = new Image();
-// boxURL.src = backgrounds.boxBkgrd;
-// forkURL = new Image();
-// forkURL.src = backgrounds.forkBkgrd;
-// homebaseURL = new Image();
-// homebaseURL.src = backgrounds.homebaseBkgrd;
-
-
-// bridgeURL = new Image();
-// bridgeURL.src = backgrounds.bridgeBkgrd;
-// trollURL = new Image();
-// trollURL.src = props.troll;
-// treasureChestURL = new Image();
-// treasureChestURL.src = props.treasureChest;
-// darkForestURL = new Image();
-// darkForestURL.src = backgrounds.darkForestBkgrd;
-// destructForestURL = new Image();
-// destructForestURL.src = backgrounds.destructForestBkgrd;
-// supplyCrateURL = new Image();
-// supplyCrateURL.src = props.supplyCrate;
-
+// Creates canvas with team options
 function teamSceneInit() {
   avengersURL;
   justiceLeagueURL;
@@ -58,37 +26,7 @@ function drawTeamScene() {
   ctx.drawImage(supernaturalURL, 325, 175, 320, 170);
 }
 
-// teamSceneInit();
-
-// function preparationsSceneInit() {
-//   avengersURL;
-//   justiceLeagueURL;
-//   ghostbustersURL;
-//   supernaturalURL;
-//   window.requestAnimationFrame(startPreparationsScene);
-// }
-
-// function startPreparationsScene() {
-//   frameRateId = setInterval(drawPreparationsScene, 10);
-// }
-
-// function drawPreparationsScene() {
-//   ctx.fillStyle = "steelblue";
-//   ctx.fillRect(0, 0, 650, 350);
-//   if (team === "The Avengers") {
-//     ctx.drawImage(avengersURL, 0, 0, 650, 350);
-//   } 
-//   else if (team === "The Justice League") {
-//     ctx.drawImage(justiceLeagueURL, 0, 0, 650, 350);
-//   }
-//   else if (team === "The Supernatural Duo") {
-//     ctx.drawImage(supernaturalURL, 0, 0, 650, 350);
-//   }
-//   else {
-//     ctx.drawImage(ghostbustersURL, 0, 0, 650, 350);
-//   }
-// }
-
+// Creates canvas with weapon and armor options
 function supplyChoiceInit() {
   weaponsURL;
   armorURL;
@@ -106,6 +44,7 @@ function drawSupplyChoice() {
   ctx.drawImage(armorURL, 325, 50, 325, 250);
 }
 
+// Called by #r1 click in game.js
 function trollSceneInit() {
   playerURL.src = player.url;
   trollURL;
@@ -118,9 +57,9 @@ function drawTrollScene() {
   ctx.drawImage(playerURL, 80, 282, player.srcWidth, player.srcHeight, 120, 135, player.srcWidth, player.srcHeight);
   ctx.drawImage(trollURL, 0, 0, 200, 172, 335, 35, 200, 172);
 }
-
 // trollSceneInit();
 
+// Called by #r2 click in game.js
 function noTrollSceneInit() {
   playerURL.src = player.url;
   bridgeURL;
@@ -131,9 +70,9 @@ function drawNoTrollScene() {
   ctx.drawImage(bridgeURL, 0, 0, 650, 350);
   ctx.drawImage(playerURL, 240, 282, player.srcWidth, player.srcHeight, 220, 200, player.srcWidth, player.srcHeight);
 }
-
 // noTrollSceneInit();
 
+// Called by #b1 click
 function openBoxSceneInit() {
   playerURL.src = player.url;
   treasureChestURL;
@@ -146,9 +85,9 @@ function drawOpenBoxScene() {
   ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 220, player.srcWidth, player.srcHeight);
   ctx.drawImage(treasureChestURL, 400, 300, 100, 100, 300, 225, 100, 100);
 }
-
 // openBoxSceneInit();
 
+// Called by #b2 click
 function leaveBoxSceneInit() {
   playerURL.src = player.url;
   treasureChestURL;
@@ -161,7 +100,9 @@ function drawLeaveBoxScene() {
   ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 220, player.srcWidth, player.srcHeight);
   ctx.drawImage(treasureChestURL, 500, 300, 100, 100, 300, 225, 100, 100);
 }
+// leaveBoxSceneInit();
 
+// Called by scene3() if stealth >=.5
 function darkForestSceneInit() {
   playerURL.src = player.url;
   darkForestURL;
@@ -172,9 +113,9 @@ function drawDarkForestScene() {
   ctx.drawImage(darkForestURL, 0, 0, 650, 350);
   ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 220, 240, player.srcWidth, player.srcHeight);
 }
-
 // darkForestSceneInit();
 
+// Called by scene3() if offense >=.5
 function destructForestSceneInit() {
   playerURL.src = player.url;
   destructForestURL;
@@ -187,6 +128,7 @@ function drawDestructForestScene() {
 }
 // destructForestSceneInit();
 
+// Called by scene3() if defense >=.5
 function forestFallSceneInit() {
   playerURL.src = player.url;
   darkForestURL;
@@ -198,9 +140,9 @@ function drawForestFallScene() {
   ctx.drawImage(boxURL, 0, 0, 650, 350);
   ctx.drawImage(playerURL, 400, 282, 100, player.srcHeight, 300, 220, player.srcWidth, player.srcHeight);
 }
-
 // forestFallSceneInit();
 
+// Called by scene3() as catchall
 function emergeFromForestSceneInit() {
   playerURL.src = player.url;
   boxURL;
@@ -211,9 +153,9 @@ function drawEmergeFromForestScene() {
   ctx.drawImage(boxURL, 0, 0, 650, 350);
   ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 200, player.srcWidth, player.srcHeight);
 }
-
 // emergeFromForestSceneInit();
 
+// Called by #bu1, #bu2, or #bu3 click
 function resupplySceneInit() {
   playerURL.src = player.url;
   homebaseURL;
@@ -226,9 +168,9 @@ function drawResupplyScene() {
   ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 216, 230, player.srcWidth, player.srcHeight);
   ctx.drawImage(supplyCrateURL, 0, 0, 512, 512, 400, 240, 80, 80);
 }
-
 // resupplySceneInit();
 
+// Called by #bu4 click
 function noSupplySceneInit() {
   playerURL.src = player.url;
   homebaseURL;
@@ -239,19 +181,19 @@ function drawNoSupplyScene() {
   ctx.drawImage(homebaseURL, 0, 0, 650, 350);
   ctx.drawImage(playerURL, 320, 94, player.srcWidth, player.srcHeight, 400, 230, player.srcWidth, player.srcHeight);
 }
-
 // noSupplySceneInit();
 
+// Called by scene1, scene2, scene3, and scene4
 function roundInit() {
   playerURL.src = player.url;
   riverURL;
   boxURL;
   forkURL;
   homebaseURL;
-
   window.requestAnimationFrame(resetPlayer);
 }
 
+// resets player to start values for walking animations
 function resetPlayer () {
   player.spriteSheetW = 640;
   player.spriteSheetH = 470; 
@@ -273,7 +215,6 @@ function roundStart() {
     frameRateId = setInterval(roundDraw, 45);
   }
   else if (box) {
-    // resetPlayer();
     frameRateId = setInterval(roundDraw, 50);
   }
   else if (fork) {
