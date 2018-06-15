@@ -1,28 +1,19 @@
-// html-routes.js - this file offers a set of routes for sending users to the various html pages
-// *********************************************************************************
+//html-routes.js-Offers a set of routes for sending users to the various html pages.//
 
-// Dependencies
-// =============================================================
-var path = require("path");
+//Dependencies.//
+const path=require("path");
 
-// Routes
-// =============================================================
-module.exports = function(app) {
+//Routes.//
+module.exports=function(app){
+  
+//Below routes handles the HTML page that the user gets sent to.//
 
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
-  //index route loads game.html
-  app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../index.html"));
+//Index route loads index.html.//
+  app.get("/",function(req, res){
+    res.sendFile(path.join(__dirname,"../index.html"));
   });
-
-  // // Route to the index page
-  app.get("/game", function(req, res) {
-    res.sendFile(path.join(__dirname, "../game.html"));
+// Route to the game page.//
+  app.get("/game",function(req, res){
+    res.sendFile(path.join(__dirname,"../game.html"));
   });
-
-  // // blog route loads main.html
-  // app.get("/main", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/main.html"));
-  // });
 };
