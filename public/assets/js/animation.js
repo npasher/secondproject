@@ -9,32 +9,23 @@ canvas.height = 350;
 var canvasWidth = 650;
 var canvasHeight = 350;
 
-// paris, mumbai, moscow all need to be changed
-var backgrounds = {
-  cairoBkgrd: "./public/assets/images/backgrounds/cairo.jpg",
-  parisBkgrd: "./public/assets/images/backgrounds/paris.jpg",
-  laBkgrd: "./public/assets/images/backgrounds/la.jpg",
-  mumbaiBkgrd: "./public/assets/images/backgrounds/mumbai.jpg",
-  saopaoloBkgrd: "./public/assets/images/backgrounds/saopaolo.jpg",
-  shanghaiBkgrd: "./public/assets/images/backgrounds/shanghai.jpg",
-  sydneyBkgrd: "./public/assets/images/backgrounds/sydney.jpg",
-  moscowBkgrd: "./public/assets/images/backgrounds/moscow.jpg",
-  nycBkgrd: "./public/assets/images/backgrounds/nyc.jpg"
-}
 
-// Creation of game characters
-var player = new Sprite("./public/assets/images/sprites/hero.png", 640, 470, 5, 8, 0, 6, 0, 94, 0, 260, 3);
-var ufo = new Sprite("./public/assets/images/sprites/ufo1/ufov2.png", 696, 210, 5, 12, 0, 12, 0, 0, 0, 10, 7);
+
+var alienFound = false;
+
+
 // The variable to hold the setInterval() in start()
 var frameRateId;
 
 // Creates url in correct formate for the drawImage();
-playerURL = new Image();
-ufoURL = new Image();
+// playerURL = new Image();
+// playerURL.src = player.url; 
+// ufoURL = new Image();
+// ufoURL.src = ufo.url;
 
-function init() {
-  playerURL.src = player.url; 
-  ufoURL.src = ufo.url;
+function outcomeInit() {
+  playerURL;
+  ufoURL;
   window.requestAnimationFrame(start);
 }
 
@@ -45,7 +36,9 @@ function start() {
 
 function draw() {
   // console.log("checking draw loop");
+  ufo.speed = 9;
   updateFrame();
+  ctx.drawImage(moscowURL, 0, 0, 650, 350);
   ctx.drawImage(ufoURL, ufo.srcx, ufo.srcy, ufo.srcWidth, ufo.srcHeight, ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
 }
@@ -98,7 +91,28 @@ function updatePlayer() {
     player.dx += player.speed;
   }
   else { 
-    player.dx = (canvasWidth - player.srcWidth + 1) / 2;
+    player.dx = (canvasWidth - player.srcWidth) / 2;
+    player.dirRight = false;
+    player.srcCurFrame = 0;
+    player.srcx = 0;
+    player.srcy = 0;
+    player.srcTotFrame = 1;
+  }
+}
+
+function roundUpdatePlayer() {
+  // Updates the frame index
+  player.srcCurFrame = ++player.srcCurFrame % player.srcTotFrame;
+  // Calculates the x coordinate for spritesheet
+  player.srcx = player.srcCurFrame * player.srcWidth;
+  // Clear already drawn sprite before new sprite renders
+  ctx.clearRect(player.dx, player.dy, player.srcWidth, player.srcHeight);
+  // Movement logic
+  if (player.dirRight && player.dx < ((canvasWidth - 200) - player.srcWidth) / 2) {
+    player.dx += player.speed;
+  }
+  else { 
+    player.dx = ((canvasWidth - 200) - player.srcWidth) / 2;
     player.dirRight = false;
     player.srcCurFrame = 0;
     player.srcx = 0;
@@ -111,5 +125,9 @@ function stopInterval() {
   clearInterval(frameRateId);
 }
 
+function deathOutcome () {
+  ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
+}
+
 // STARTS THE ANIMATION
-init();
+// init();
