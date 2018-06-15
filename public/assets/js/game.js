@@ -53,7 +53,7 @@ function startGame(){
         <button class="choice" id="justice">Select</button>
         <br>
         <br>
-        <p class="action-info">Ghostbusteres: High charm, low defense.</p>
+        <p class="action-info">Ghostbusters: High charm, low defense.</p>
         <button class="choice" id="ghost">Select</button>
         <br>
         <br>
