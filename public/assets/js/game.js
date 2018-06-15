@@ -668,29 +668,33 @@ function save(){
             lost = 1;
         }
             var oldPlayer = {
-                name: $("#playerName").val().trim(),
+                // name: $("#playerName").val().trim(),
                 email: $("#playerEmail").val().trim(),
                 wins: won,
                 losses: lost
             }
 
-            // $.get("/api").then(function(data){
+            $.post("/api/email", oldPlayer).then(function(data){
+                console.log(data);
+                $.get("/api/email", oldPlayer.email, function(data) {
+                    $(".jbGame").html(
+                        `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
+                        <p>Name: ${data.name}</p>
+                        <p>Wins: ${data.wins}</p>
+                        <p>Losses: ${data.losses}</p>
+                        <br><br>
+                        <button class="btn continue">Play Again?</button>`
+                    ) ;
+                });
+                $(".continue").click(function(){
+                    stopInterval();
+                    startGame();
+                });
+                })
             //     console.log("returning player data");
             //     console.log(data);
             //     if ("#playerEmail" === data.email) {
-            //         $(".jbGame").html(
-            //             `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
-            //             <p>Name: ${data.name}</p>
-            //             <p>Wins: ${data.wins}</p>
-            //             <p>Losses: ${data.losses}</p>
-            //             <br><br>
-            //             <button class="btn continue">Play Again?</button>`
-            //         ) ;
-            //     }
-            //     $(".continue").click(function(){
-            //         stopInterval();
-            //         startGame();
-            //     });
+            //         
             // });
 
     $(".jbGame").html(
