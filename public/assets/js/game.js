@@ -1,4 +1,4 @@
-//game and stats variables
+//Game and stats variables.//
 var win = false;
 var team = "";
 var teamStealth = 0;
@@ -61,7 +61,7 @@ function startGame(){
         <button class="choice" id="super">Select</button>`
     );
 
-    //starts the game by having the user select a team
+//Starts the game by having the user select a team.//
     $("#avenge").click(function(){
         team = "The Avengers";
         teamStealth = 10;
@@ -100,7 +100,7 @@ function startGame(){
     });
 }
 
-//calculates the stats of the player's team
+//Calculates the stats of the player's team.//
 function calcStats(){
     stealth = (-weight-timeOfDay-uncomfort+teamStealth)/100;
     defense = (armor-uncomfort+teamDefense-timeOfDay)/100;
@@ -113,7 +113,7 @@ function calcStats(){
     console.log("charm is " + charm);
 };
 
-//user selects how many weapons and armor they would like to take. this will increase and decrease certain stats
+//User selects how many weapons and armor they would like to take, increasing and decreasing certain stats.//
 function chooseWeapons(){
     stopInterval();
     supplyChoiceInit();
@@ -200,7 +200,7 @@ function chooseArmor(){
     });
 };
 
-//scene one: user will have to decide between 2 scenerios that decrease different stats
+//Scene one:User will have to decide between 2 scenerios that decrease different stats.//
 function scene1(){
     stopInterval()
     river = true;
@@ -240,7 +240,7 @@ function scene1(){
     });
 }
 
-//scene two: user decides to open a box or leave it alone. opening the box could result in a good or bad outcome
+//Scene two:User decides to open a box or leave it alone. opening the box could result in a good or bad outcome.//
 function scene2(){
     stopInterval();
     river = false;
@@ -314,7 +314,7 @@ function scene2(){
     });
 }
 
-//scene three: user can choose one of 3 options but the response is based purely off their current stats and doesn't change anything
+//Scene three:User can choose one of 3 options but the response is based purely off their current stats and doesn't change anything.//
 function scene3(){
     stopInterval();
     player.dx = 0;
@@ -372,7 +372,7 @@ function scene3(){
     });
 }
 
-//scene four: user chooses to up one of their stats, lowering another.
+//Scene four:User chooses to up one of their stats, lowering another.//
 function scene4(){
     stopInterval();
     fork = false;
@@ -443,7 +443,7 @@ function scene4(){
     });
 }
 
-//the final stage of the game. start of the ending flow
+//Final stage of the game and start of the ending flow.//
 function outcome(){
     if (stealth>0.9){
         stealth = 0.9;
@@ -499,7 +499,6 @@ function anythingThere(){
         var rand2 = Math.random();
         if (rand2>0.5){
             stopInterval();
-            // noAlienInit();
             win = true;
             $(".jbGame").html(
                 `<h1 class="action-title text-center">Nothing's here... Guess ${team} should go home and report their findings.</h1>
@@ -635,7 +634,7 @@ function prepare(){
   };
 };
 
-//user can save their game into the database
+//User may save their game into the database.//
 function save(){
   $(".jbGame").html(
       `<h1 class="action-title text-center">Save your game?</h1>

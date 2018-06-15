@@ -1,19 +1,19 @@
-// Requiring our models
+// Requiring our models.//
 const db=require("../models");
 
-//Route for getting all players in the db.
+//Route for getting all players in the db.//
 module.exports=function(app){
-  //   GET route for getting all of the teams
+//GET route for getting all of the teams.//
   app.get("/api", function(req, res){
-    // findAll returns all entries for a table when used with no options
+  //findAll returns all entries for a table when used with no options.//
     db.user.findAll({}).then(function(results){
-      // We have access to the aliens as an argument inside of the callback function
+//We have access to the aliens as an argument inside of the callback function.//
       res.json(results);
       console.log(results);
     });
   });
 
-  //GET route for getting the top 5 players by win count
+//GET route for getting the top 5 players by win count.//
   app.get("/api/topfive", function(req, res){
     db.user.findAll(
       {
@@ -25,7 +25,7 @@ module.exports=function(app){
     });
   });
 
-  //POST route for creating new user
+//POST route for creating new user.//
   app.post("/api/new", function(req,res){
     console.log(req.body);
     db.user
