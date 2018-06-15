@@ -17,13 +17,12 @@ module.exports = function(app) {
   });
 
   // // Route to the index page
-  // app.get("/index", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/index.html"));
-  // });
+  app.get("/game", function(req, res) {
+    res.sendFile(path.join(__dirname, "../game.html"));
+  });
 
   // // blog route loads main.html
   // app.get("/main", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/main.html"));
   // });
-
 };

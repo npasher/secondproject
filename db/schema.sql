@@ -2,5 +2,3 @@
 DROP DATABASE IF EXISTS alien;
 -- Creates the "alien" database --
 CREATE DATABASE alien;
-
-
