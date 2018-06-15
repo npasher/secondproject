@@ -674,8 +674,8 @@ function save(){
           losses: lost
       }
 
-      $.post("/api/email", oldPlayer).then(function(data){
-          console.log(data); 
+    $.post("/api/email", oldPlayer).then(function(data){
+        console.log(data); 
         //   $(".jbGame").html(
         //     `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
         //     <p>Name: ${oldPlayer.name}</p>
@@ -688,18 +688,18 @@ function save(){
         //     stopInterval();
         //     startGame();
         // });
-      });
+    });
 
-      $(".jbGame").html(
-          `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-          <button class="btn continue">Play Again</button>`
-      );
-      $(".continue").click(function(){
-          stopInterval();
-          startGame();
-      });
+    $(".jbGame").html(
+        `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
+        <button class="btn continue">Play Again</button>`
+    );
+    $(".continue").click(function(){
+        stopInterval();
+        startGame();
+    });
     }
-  });
+    });
 
     $("#newPlayer").click(function(){
         event.preventDefault();
