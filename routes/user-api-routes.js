@@ -13,6 +13,18 @@ module.exports=function(app){
     });
   });
 
+  //GET route for getting the top 5 players by win count
+  app.get("/api/topfive", function(req, res){
+    db.user.findAll(
+      {
+        order: [['wins', 'DESC'],],
+        limit: 5
+      }
+    ).then(function(results){
+      res.json(results);
+    });
+  });
+
   //POST route for creating new user
   app.post("/api/new", function(req,res){
     console.log(req.body);
