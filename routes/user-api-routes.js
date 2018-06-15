@@ -13,16 +13,6 @@ module.exports=function(app){
     });
   });
 
-  app.get("/api/:email", function(req, res){
-    db.user.findAll({
-      where: {
-        email: req.params.email
-      }
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
-
 //GET route for getting the top 5 players by win count.//
   app.get("/api/topfive", function(req, res){
     db.user.findAll(
@@ -82,5 +72,14 @@ module.exports=function(app){
           }
         );
       });
+  });
+  app.get("/api/:email", function(req, res){
+    db.user.findAll({
+      where: {
+        email: req.params.email
+      }
+    }).then(function(results) {
+      res.json(results);
+    });
   });
 };
