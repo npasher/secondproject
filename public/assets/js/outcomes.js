@@ -224,7 +224,7 @@ function playerInjury() {
   }
 }
 
-injuredInit();
+// injuredInit();
 
 function negotiateInit() {
   playerURL;
