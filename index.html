@@ -18,23 +18,17 @@
     </div>
 <!--Button to start game.-->
     <div>
-    <a href="game"><button type="button" class="btn btn-danger  btn-circle btn-xl">START</button></a>
+    <a href="game"><button type="button" class="btn btn-danger  btn-circle btn-xl active pull-right">START</button></a>
     </div>
 <!--Span for displaying High Scores-->
-    <div>
-      <span id="highScores"></span>
+    <div id="table">
+      <!-- <span id="highScores"></span> -->
     </div>
 <!--Calling jQuery.-->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-<!--Calling Animation.-->
-  <script src="./public/assets/js/sprite.js"></script>
-  <script src="./public/assets/js/animation.js"></script>
-  <script src="./public/assets/js/middleScenes.js"></script>
-  <script src="./public/assets/js/outcomes.js"></script>
-<!-- Calling Game Engine. -->
-  <script src="./public/assets/js/game.js"></script> 
-  
+<!--Calling High Scores.-->
+  <script src="./public/assets/js/topFive.js"></script>
   </body>
 
 </html>
