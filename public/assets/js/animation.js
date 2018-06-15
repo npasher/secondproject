@@ -32,7 +32,7 @@ function draw() {
   ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
 }
 
-// Splits out into separate sprite functions to update sprite frames from sprite sheet and animate across page.
+// Splitting into separate sprite functions to update sprite frames from sprite sheet and animate across page.
 function updateFrame() {
   updateUFO();
   updatePlayer();

@@ -10,7 +10,6 @@ function drawUFOsite() {
 }
 
 function lostForestSceneInit() {
-  // stopInterval();
   playerURL;
   darkForestURL;
   window.requestAnimationFrame(startLostForestScene);
@@ -68,8 +67,6 @@ function spinningUFO() {
   ctx.clearRect(ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
 }
 
-// alienSpottedInit();
-
 function noAlienInit() {
 
 }
@@ -77,8 +74,6 @@ function noAlienInit() {
 function drawNoAlien() {
 
 }
-
-// noAlienInit();
 
 function alienEvidenceInit() {
   playerURL;
@@ -96,8 +91,6 @@ function drawAlienEvidence() {
   ctx.drawImage(cropCircleURL, 0, 0, 650, 350);
   ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
 }
-
-// alienEvidenceInit();
 
 function sneakAroundInit() {
   playerURL;
@@ -120,12 +113,6 @@ function drawSneakAround() {
   ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
 }
 
-// sneakAroundInit();
-
-// function ufoSpotBeam () {
-//   ctx.drawImage 
-// }
-
 function spottedInit() {
   playerURL;
   ufoURL;
@@ -136,12 +123,6 @@ function spottedInit() {
 function spottedStart() {
   frameRateId = setInterval(draw, 100);
 }
-
-// function drawSpottedInit() {
-
-// }
-
-// spottedInit();
 
 function fightInit() {
   playerShootingURL;
@@ -172,8 +153,6 @@ function playerFighting() {
   ctx.clearRect(playerShooting.dx, playerShooting.dy, playerShooting.dWidth, playerShooting.dHeight);
 }
 
-// fightInit();
-
 function exploreInit() {
 
 }
@@ -181,8 +160,6 @@ function exploreInit() {
 function drawExplore() {
 
 }
-
-// exploreInit();
 
 function injuredInit() {
   playerInjuredURL;
@@ -224,8 +201,6 @@ function playerInjury() {
   }
 }
 
-// injuredInit();
-
 function negotiateInit() {
   playerURL;
   ufoURL;
@@ -246,8 +221,6 @@ function drawNegotiate() {
   ctx.drawImage(playerURL, 240, 94, player.srcWidth, player.srcHeight, 250, 260, player.srcWidth, player.srcHeight);
 }
 
-// negotiateInit();
-
 function charmedInit() {
 
 }
@@ -255,8 +228,6 @@ function charmedInit() {
 function drawCharmed() {
 
 }
-
-// charmedInit();
 
 function abductInit() {
   playerURL;
@@ -286,5 +257,3 @@ function abductLoop() {
     player.dy -= player.speed;
   } 
 }
-
-// abductInit();
