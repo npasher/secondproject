@@ -1,12 +1,12 @@
 // Requiring our models
-var db = require("../models");
+const db=require("../models");
 
 //Route for getting all players in the db.
-module.exports = function(app) {
+module.exports=function(app){
   //   GET route for getting all of the teams
-  app.get("/api", function(req, res) {
+  app.get("/api", function(req, res){
     // findAll returns all entries for a table when used with no options
-    db.user.findAll({}).then(function(results) {
+    db.user.findAll({}).then(function(results){
       // We have access to the aliens as an argument inside of the callback function
       res.json(results);
       console.log(results);
@@ -14,7 +14,7 @@ module.exports = function(app) {
   });
 
   //POST route for creating new user
-  app.post("/api/new", function(req, res) {
+  app.post("/api/new", function(req,res){
     console.log(req.body);
     db.user
       .create({
@@ -23,39 +23,39 @@ module.exports = function(app) {
         wins: req.body.wins,
         losses: req.body.losses
       })
-      .then(function(results) {
+      .then(function(results){
         res.json(results);
       });
   });
 
- // post route to update wins and losses and track user stats by email at the end of the game.
-  app.post("/api/email", function(req, res) {
-    var wins;
-    var losses;
+ //Post route updating wins & losses & track user stats by email at the end of the game.//
+  app.post("/api/email", function(req,res){
+    let wins;
+    let losses;
     db.user
       .findOne({
-        where: {
-          email: req.body.email
+        where:{
+          email:req.body.email
         }
       })
-      .then(function(res) {
+      .then(function(res){
         console.log("hey");
         console.log(req.body.wins);
-        wins = res.wins;
-        losses = res.losses;
-        if (req.body.wins === "1") {
+        wins=res.wins;
+        losses=res.losses;
+        if (req.body.wins==="1"){
           wins++;
-        } else {
+        }else{
           losses++;
         }
         db.user.update(
           {
-            wins: wins,
-            losses: losses
+            wins:wins,
+            losses:losses
           },
           {
-            where: {
-              email: req.body.email
+            where:{
+              email:req.body.email
             }
           }
         );
