@@ -9,19 +9,8 @@ canvas.height = 350;
 var canvasWidth = 650;
 var canvasHeight = 350;
 
-
-
-var alienFound = false;
-
-
-// The variable to hold the setInterval() in start()
+// The variable to hold the setInterval() in game to clear the interval
 var frameRateId;
-
-// Creates url in correct formate for the drawImage();
-// playerURL = new Image();
-// playerURL.src = player.url; 
-// ufoURL = new Image();
-// ufoURL.src = ufo.url;
 
 function outcomeInit() {
   playerURL;
@@ -45,7 +34,6 @@ function draw() {
 
 // Splits out into separate sprite functions to update sprite frames from sprite sheet and animate across page.
 function updateFrame() {
-  // console.log("update frame test");
   updateUFO();
   updatePlayer();
 }
@@ -124,10 +112,3 @@ function roundUpdatePlayer() {
 function stopInterval() {
   clearInterval(frameRateId);
 }
-
-function deathOutcome () {
-  ctx.drawImage(playerURL, player.srcx, player.srcy, player.srcWidth, player.srcHeight, player.dx, player.dy, player.srcWidth, player.srcHeight);
-}
-
-// STARTS THE ANIMATION
-// init();
