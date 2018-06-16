@@ -379,10 +379,10 @@ function scene4(){
     homebase = true;
     roundInit();
     $(".jbGame").html(
-        `<h1 class="action-title text-center">Homebase call and asks if you need any reinforcements. Do you need to stock up on anything?</h1>
+        `<h1 class="action-title text-center">Homebase calls and asks if you need any reinforcements. Do you need to stock up on anything?</h1>
         <button class="btn choice" id="bu1">We need more weapons</button> <br><br>
         <button class="btn choice" id="bu2">We need more armor</button> <br><br>
-        <button class="btn choice" id="bu3">We need more camoflauge</button> <br><br>
+        <button class="btn choice" id="bu3">We need more camouflage</button> <br><br>
         <button class="btn choice" id="bu4">We don't need to waste anymore time</button>`
     );
     $("#bu1").click(function(){
@@ -421,7 +421,7 @@ function scene4(){
         uncomfort -= 30;
         timeOfDay += 20;
         $(".jbGame").html(
-            `<h1 class="action-title text-center">Homebase sends camoflauge to the team. Team waits for delivery.</h1>
+            `<h1 class="action-title text-center">Homebase sends camouflage to the team. Team waits for delivery.</h1>
             <button class="btn continue">Continue to the UFO site</button>`
         );
         $(".continue").click(function(){
