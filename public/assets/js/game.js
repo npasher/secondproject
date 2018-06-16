@@ -477,6 +477,7 @@ function outcome(){
             <button class="btn continue">Save</button>`
         );
         $(".continue").click(function(){
+            stopInterval();
             save();
         });
     }
@@ -505,6 +506,7 @@ function anythingThere(){
                 <button class="btn continue">Save</button>`
             );
             $(".continue").click(function(){
+                stopInterval();
                 save();
             });
         }else{
@@ -516,6 +518,7 @@ function anythingThere(){
                 <button class="btn continue">Save</button>`
             );
             $(".continue").click(function(){
+                stopInterval();
                 save();
             });
         };
@@ -533,6 +536,7 @@ function spotted(){
             <button class="btn continue">Save</button>`
         );
         $(".continue").click(function(){
+            stopInterval();
             save();
         });
     }else{
@@ -568,6 +572,7 @@ function confrontation(){
             <button class="btn continue">Save</button>`
         );
         $(".continue").click(function(){
+            stopInterval();
             save();
         });
     }else{
@@ -578,6 +583,7 @@ function confrontation(){
             <button class="btn continue">Save</button>`
         );
         $(".continue").click(function(){
+            stopInterval();
             save();
         });
     };
@@ -595,6 +601,7 @@ function negotiate(){
             <button class="btn continue">Save</button>`
         );
         $(".continue").click(function(){
+            stopInterval();
             save();
         });
     }else{
@@ -619,6 +626,7 @@ function prepare(){
         <button class="btn continue">Save</button>`
     );
     $(".continue").click(function(){
+        stopInterval();
         save();
     });
     }else{
@@ -629,7 +637,8 @@ function prepare(){
         <button class="btn continue">Save</button>`
         );
         $(".continue").click(function(){
-        save();
+            stopInterval();
+            save();
         });
     };
 };
@@ -656,10 +665,10 @@ function save(){
 
     $("#existingPlayer").click(function(){
         event.preventDefault();
+        stopInterval();
         if ($("#playerName").val() === "" || $("#playerEmail").val() === ""){
             alert("Please enter player name and email.")
         }else{
-        
             var won = 0;
             var lost = 0;
             if (win === true){
@@ -672,7 +681,6 @@ function save(){
                 wins: won,
                 losses: lost
             }
-
             $.post("/api/email", oldPlayer).then(function(data){
                 console.log(data);
             });
@@ -697,10 +705,10 @@ function save(){
 
     $("#newPlayer").click(function(){
         event.preventDefault();
+        stopInterval();
         if ($("#playerName").val() === "" || $("#playerEmail").val() === ""){
             alert("Please enter player name and email.")
         }else{
-
             var won = 0;
             var lost = 0;
             if (win === true){
@@ -714,7 +722,6 @@ function save(){
                 wins: won,
                 losses: lost
             }
-
             $.post("/api/new", newPlayer).then(function(data){
                 $(".jbGame").html(
                     `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
