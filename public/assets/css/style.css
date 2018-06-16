@@ -4,10 +4,6 @@ body{
     background-image:url("../images/sunrise-1756274_1920.jpg");
     background-repeat:no-repeat;
 }
-.container{/*Positioning of intro display.*/ 
-    /* background-position:center;
-    margin:1% 1% 0 2.5%; */
-}
 .intro{/*Animation, size and text color.*/
     font-family:"Press Start 2P",cursive;
     position:absolute;

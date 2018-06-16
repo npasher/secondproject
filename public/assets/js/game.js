@@ -609,52 +609,52 @@ function negotiate(){
 }
 
 function prepare(){
-  var rand2 = Math.random()
-  if (defense>rand2){
-      stopInterval();
-      fightInit();
-      win = true;
-      $(".jbGame").html(
-          `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>
-          <button class="btn continue">Save</button>`
-      );
-      $(".continue").click(function(){
-          save();
-      });
-  }else{
-      stopInterval();
-      abductInit();
-      $(".jbGame").html(
-          `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>
-          <button class="btn continue">Save</button>`
-      );
-      $(".continue").click(function(){
-          save();
-      });
-  };
+    var rand2 = Math.random()
+    if (defense>rand2){
+    stopInterval();
+    fightInit();
+    win = true;
+    $(".jbGame").html(
+        `<h1 class="action-title text-center">Your defenses are just enough. No time to take evidence, run home and hope eveyone believes your story.</h1>
+        <button class="btn continue">Save</button>`
+    );
+    $(".continue").click(function(){
+        save();
+    });
+    }else{
+        stopInterval();
+        abductInit();
+        $(".jbGame").html(
+        `<h1 class="action-title text-center">Your defenses are too weak. Your team is abducted.</h1>
+        <button class="btn continue">Save</button>`
+        );
+        $(".continue").click(function(){
+        save();
+        });
+    };
 };
 
 //User may save their game into the database.//
 function save(){
-  $(".jbGame").html(
-      `<h1 class="action-title text-center">Save your game?</h1>
-      <form>
-          <div class="form-group">
-              <label for="formGroupExampleInput">Enter Player Name</label>
-              <input type="text" class="form-control" id="playerName" placeholder="plyr1">
-              <br><br>
-          </div>
-          <div class="form-group">
-              <label for="formGroupExampleInput">Enter Email</label>
-              <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
-              <br><br>
-          </div>
-          <button class="btn continue" id="existingPlayer">I'm a returning player</button> <br><br>
-          <button class="btn continue" id="newPlayer">I'm a new player</button>
-      </form>`
-  );
+    $(".jbGame").html(
+        `<h1 class="action-title text-center">Save your game?</h1>
+        <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Enter Player Name</label>
+            <input type="text" class="form-control" id="playerName" placeholder="plyr1">
+            <br><br>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Enter Email</label>
+            <input type="text" class="form-control" id="playerEmail" placeholder="plyr1@game.com">
+            <br><br>
+        </div>
+            <button class="btn continue" id="existingPlayer">I'm a returning player</button> <br><br>
+            <button class="btn continue" id="newPlayer">I'm a new player</button>
+        </form>`
+    );
 
-  $("#existingPlayer").click(function(){
+    $("#existingPlayer").click(function(){
         event.preventDefault();
         if ($("#playerName").val() === "" || $("#playerEmail").val() === ""){
             alert("Please enter player name and email.")
@@ -668,7 +668,6 @@ function save(){
                 lost = 1;
             }
             var oldPlayer = {
-                // name: $("#playerName").val().trim(),
                 email: $("#playerEmail").val().trim(),
                 wins: won,
                 losses: lost
@@ -694,21 +693,6 @@ function save(){
                     startGame();
                 });
             })
-            //     console.log("returning player data");
-            //     console.log(data);
-            //     if ("#playerEmail" === data.email) {
-            //         
-            // });
-
-    // $(".jbGame").html(
-    //     `<h1 class="action-title text-center">Your game has been saved. Play again?</h1>
-    //     <button class="btn continue">Play Again</button>`
-    // );
-    // $(".continue").click(function(){
-    //     stopInterval();
-    //     startGame();
-    // });
-
     });
 
     $("#newPlayer").click(function(){
@@ -732,7 +716,6 @@ function save(){
             }
 
             $.post("/api/new", newPlayer).then(function(data){
-                // console.log(data);
                 $(".jbGame").html(
                     `<h1 class="action-title text-center">Your game has been saved. Current record:</h1>
                     <p>Name: ${newPlayer.name}</p>
