@@ -27,7 +27,6 @@ function drawLostForestScene() {
 }
 
 function lostForestLoop() {
-  console.log(player);
   player.srcCurFrame = ++player.srcCurFrame % player.srcTotFrame;
   player.srcx = player.srcCurFrame * player.srcWidth;
   ctx.clearRect(player.dx, player.dy, player.dWidth, player.dHeight);
@@ -49,7 +48,6 @@ function alienSpottedStart() {
 }
 
 function drawAlienSpotted() {
-  // updateUFO();
   ufo.speed = 10;
   ufo.dx = 500;
   ufo.dy = 20;
@@ -61,18 +59,9 @@ function drawAlienSpotted() {
 
 function spinningUFO() {
   ufo.srcCurFrame = ++ufo.srcCurFrame % ufo.srcTotFrame;
-  // Calculates the x coordinate for spritesheet
   ufo.srcx = ufo.srcCurFrame * ufo.srcWidth;
   // Clear already drawn sprite before new sprite renders
   ctx.clearRect(ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
-}
-
-function noAlienInit() {
-
-}
-
-function drawNoAlien() {
-
 }
 
 function alienEvidenceInit() {
@@ -104,7 +93,6 @@ function sneakAroundStart() {
 }
 
 function drawSneakAround() {
-  // player.speed = 1;
   ufo.speed = 10;
   updateUFO();
   updatePlayer();
@@ -147,18 +135,9 @@ function drawFight() {
 
 function playerFighting() {
   playerShooting.srcCurFrame = ++playerShooting.srcCurFrame %playerShooting.srcTotFrame;
-  // Calculates the x coordinate for spritesheet
   playerShooting.srcx =playerShooting.srcCurFrame *playerShooting.srcWidth;
   // Clear already drawn sprite before new sprite renders
   ctx.clearRect(playerShooting.dx, playerShooting.dy, playerShooting.dWidth, playerShooting.dHeight);
-}
-
-function exploreInit() {
-
-}
-
-function drawExplore() {
-
 }
 
 function injuredInit() {
@@ -172,7 +151,6 @@ function injuredStart() {
 }
 
 function drawInjured() {
-  console.log(playerInjured);
   ufo.speed = 10;
   ufo.dx = 500;
   ufo.dy = 220;
@@ -186,13 +164,10 @@ function drawInjured() {
 }
 
 function playerInjury() {
-  // playerInjured.srcWidth = playerInjured.srcWidth + 15;
   playerInjured.srcCurFrame = ++playerInjured.srcCurFrame % playerInjured.srcTotFrame;
-  // Calculates the x coordinate for spritesheet
   playerInjured.srcx = playerInjured.srcCurFrame * playerInjured.srcWidth;
   // Clear already drawn sprite before new sprite renders
   ctx.clearRect(playerInjured.dx, playerInjured.dy, playerInjured.dWidth, playerInjured.dHeight);
-  console.log(playerInjured.srcCurFrame);
   if (playerInjured.srcCurFrame >= 4) {
     playerInjured.srcx = 500;
     playerInjured.srcy = 282;
@@ -221,14 +196,6 @@ function drawNegotiate() {
   ctx.drawImage(playerURL, 240, 94, player.srcWidth, player.srcHeight, 250, 260, player.srcWidth, player.srcHeight);
 }
 
-function charmedInit() {
-
-}
-
-function drawCharmed() {
-
-}
-
 function abductInit() {
   playerURL;
   ufoURL;
@@ -252,7 +219,6 @@ function drawAbduct() {
 }
 
 function abductLoop() {
-
   if (player.dy > 70) {
     player.dy -= player.speed;
   } 

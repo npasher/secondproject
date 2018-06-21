@@ -204,7 +204,6 @@ function resetPlayer () {
   player.srcx = 0; 
   player.srcy = 94; 
   player.dx = 0;
-  // player.dy = 260;
   player.speed = 3;
   player.dirRight = true;
   roundStart();

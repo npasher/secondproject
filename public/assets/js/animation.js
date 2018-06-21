@@ -19,12 +19,10 @@ function outcomeInit() {
 }
 
 function start() {
-  // ctx.drawImage(background, 0, 0);
   frameRateId = setInterval(draw, 100);
 }
 
 function draw() {
-  // console.log("checking draw loop");
   ufo.speed = 9;
   updateFrame();
   ctx.drawImage(moscowURL, 0, 0, 650, 350);
@@ -40,7 +38,6 @@ function updateFrame() {
 
 // Move UFO across full Screen and stops in middle above player
 function updateUFO() {
-  // console.log("1st ufo");
   // Updates the frame index
   ufo.srcCurFrame = ++ufo.srcCurFrame % ufo.srcTotFrame;
   // Calculates the x coordinate for spritesheet
@@ -49,18 +46,14 @@ function updateUFO() {
   ctx.clearRect(ufo.dx, ufo.dy, ufo.dWidth, ufo.dHeight);
   // Movement logic
   if (ufo.dirRight && ufo.dx < canvasWidth - ufo.srcWidth) {
-    // console.log("2nd ufo");
     ufo.dx += ufo.speed;
   }
   else if (ufo.dx > (canvasWidth - ufo.srcWidth) / 2) {
-    // console.log("3rd ufo");
     ufo.dirRight = false;
     ufo.dirLeft = true;
     ufo.dx -= ufo.speed;
   }
   else {
-    // console.log("last UFO Test");
-    // stopInterval(frameRateId);
     ufo.dirRight = false;
     ufo.dirLeft = false;
   }

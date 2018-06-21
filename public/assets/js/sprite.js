@@ -20,7 +20,7 @@ var Sprite = function (url, spriteSheetW, spriteSheetH, spriteSheetRows, spriteS
   this.speed = speed;
 }; 
 
-// paris, mumbai, moscow all need to be changed
+//Additional backgrounds included for expansion possibility
 var backgrounds = {
   cairoBkgrd: "./public/assets/images/backgrounds/cairo.jpg",
   parisBkgrd: "./public/assets/images/backgrounds/paris.jpg",
@@ -51,7 +51,6 @@ var props = {
   supernaturalLogo: "./public/assets/images/sprites/supernaturalLogo.png",
   assortedWeapons:"./public/assets/images/sprites/weapons.png",
   assortedArmor:"./public/assets/images/sprites/armor.png",
-
 }
 
 // Creation of game characters
