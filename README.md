@@ -1,5 +1,7 @@
 # UFO INVESTIGATIONS
 
+![game-gif](https://github.com/npasher/secondproject/public/assets/images/game-gif.gif)
+
 The goal with this group project was to create a full stack application utilzing the MVC framework. As part of this initiative, it was contingent upon each group member to attempt to ensure the proper functionality of their individual code, and then collectively attempt to ensure completely functionality of the total application once all code has been applied to the application.
 
 Navigation:
