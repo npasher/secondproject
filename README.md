@@ -13,7 +13,7 @@ GitHub link -  https://github.com/npasher/secondproject
 - To begin your alien adventure, select the "Start" button. Choose a team, your weapons, armor, and let the UFO hunt begin. Hope you survive the mission!
 
 
-* Technologies used:
+Technologies used:
  * Sequelize
  * Express
  * Node JS
